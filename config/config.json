@@ -1,14 +1,14 @@
 {
   "development": {
     "username": "root",
-    "password": "password",
+    "password": "Berkowitz5!",
     "database": "traveldb",
     "host": "localhost",
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
-    "password": "password",
+    "password": "password", 
     "database": "traveldb",
     "host": "localhost",
     "dialect": "mysql",
