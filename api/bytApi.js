@@ -1,3 +1,4 @@
+
 "use strict";
 var request = require("request");
 var Sequelize = require("sequelize");
@@ -25,4 +26,3 @@ module.exports = function (options) {
 // apiCall.then(data => {
   // do something with data
 // })
-

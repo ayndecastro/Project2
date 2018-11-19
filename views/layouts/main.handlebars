@@ -1,55 +1,85 @@
 <html>
-  <head>
-    <title>JQVMap - World Map</title>
-    <link href="maps/jqvmap.css" media="screen" rel="stylesheet" type="text/css">
-    <link href="style/style.css" media="screen" rel="stylesheet" type="text/css">
 
-    <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
-    <script type="text/javascript" src="maps/jquery.vmap.js"></script>
-    <script type="text/javascript" src="maps/maps/jquery.vmap.world.js" charset="utf-8"></script>
-    <script type="text/javascript" src="maps/maps/continents/jquery.vmap.africa.js" charset="utf-8"></script>
-    <script type="text/javascript" src="maps/maps/continents/jquery.vmap.asia.js" charset="utf-8"></script>
-    <script type="text/javascript" src="maps/maps/continents/jquery.vmap.australia.js" charset="utf-8"></script>
-    <script type="text/javascript" src="maps/maps/continents/jquery.vmap.europe.js" charset="utf-8"></script>
-    <script type="text/javascript" src="maps/maps/continents/jquery.vmap.north-america.js" charset="utf-8"></script>
-    <script type="text/javascript" src="maps/maps/continents/jquery.vmap.south-america.js" charset="utf-8"></script>
+<head>
+  <title>JQVMap - World Map</title>
+  <link href="maps/jqvmap.css" media="screen" rel="stylesheet" type="text/css">
+  <link href="style/style.css" media="screen" rel="stylesheet" type="text/css">
+
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script type="text/javascript" src="maps/jquery.vmap.js"></script>
+  <script type="text/javascript" src="maps/maps/jquery.vmap.world.js" charset="utf-8"></script>
+  <script type="text/javascript" src="maps/maps/continents/jquery.vmap.africa.js" charset="utf-8"></script>
+  <script type="text/javascript" src="maps/maps/continents/jquery.vmap.asia.js" charset="utf-8"></script>
+  <script type="text/javascript" src="maps/maps/continents/jquery.vmap.australia.js" charset="utf-8"></script>
+  <script type="text/javascript" src="maps/maps/continents/jquery.vmap.europe.js" charset="utf-8"></script>
+  <script type="text/javascript" src="maps/maps/continents/jquery.vmap.north-america.js" charset="utf-8"></script>
+  <script type="text/javascript" src="maps/maps/continents/jquery.vmap.south-america.js" charset="utf-8"></script>
+  {{!-- <script type="text/javascript" src="maps/maps/jquery.vmap.usa.js" charset="utf-8"></script> --}}
 
 
-    <script type="text/javascript">
-    jQuery(document).ready(function() {
+  <script type="text/javascript">
+    jQuery(document).ready(function () {
 
       jQuery('#vmap').vectorMap(
-{
-    map: 'world_en',
-    backgroundColor: '#a5bfdd',
-    borderColor: '#818181',
-    borderOpacity: 0.25,
-    borderWidth: 1,
-    backgroundColor: '#333333',
-    color: '#ffffff',
-    enableZoom: true,
-    hoverColor: '#c9dfaf',
-    hoverOpacity:  0.7,
-    normalizeFunction: 'polynomial',
-    scaleColors: ['#C8EEFF', '#006491'],
-    selectedColor: '#666666',
-    selectedRegions: null,
-    showTooltip: true,
-    onRegionClick: function(element, code, region)
-    {
-        var message = 'You clicked "'
-            + region
-            + '" which has the code: '
-            + code.toUpperCase();
+        {
+          map: 'world_en',
+          backgroundColor: '#a5bfdd',
+          borderColor: '#818181',
+          borderOpacity: 0.25,
+          borderWidth: 1,
+          backgroundColor: '#333333',
+          color: '#ffffff',
+          enableZoom: true,
+          hoverColor: '#c9dfaf',
+          hoverOpacity: 0.7,
+          normalizeFunction: 'polynomial',
+          scaleColors: ['#C8EEFF', '#006491'],
+          selectedColor: '#666666',
+          selectedRegions: null,
+          showTooltip: true,
+          onRegionClick: function (element, code, region) {
+            var message = 'You clicked "'
+              + region
+              + '" which has the code: '
+              + code.toUpperCase();
 
-        alert(message);
-    }
-});
+            let countryMap = region.toLowerCase() + "_en";
+            alert(message);
+
+            $('#vmap').remove();
+         
+            // we recreate (after removing it) the container div, to reset all the data of the map
+            $('#test')
+              .append('<div id="vmap" style="height: 320px; position: relative; overflow: hidden; background-color: transparent;"></div>');
+
+            // and then render map
+            $('#vmap').vectorMap({
+              map: countryMap,
+              backgroundColor: '#a5bfdd',
+              borderColor: '#818181',
+              borderOpacity: 0.25,
+              borderWidth: 1,
+              backgroundColor: '#333333',
+              color: '#ffffff',
+              enableZoom: true,
+              hoverColor: '#c9dfaf',
+              hoverOpacity: 0.7,
+              normalizeFunction: 'polynomial',
+              scaleColors: ['#C8EEFF', '#006491'],
+              selectedColor: '#666666',
+              selectedRegions: null,
+              showTooltip: true,
+            });
+          }
+        });
+
     });
-    </script>
-  </head>
-  <body>
-    {{{body}}}
-    
-  </body>
+  </script>
+</head>
+
+<body>
+  {{{body}}}
+
+</body>
+
 </html>
