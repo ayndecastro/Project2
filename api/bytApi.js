@@ -7,7 +7,6 @@ const promisify = require('util').promisify
 const fetch = promisify(request);
 
 
-
 module.exports = function (options) {
   let config = {
     method: "GET",
