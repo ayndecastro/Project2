@@ -2,10 +2,14 @@
   "development": {
     "username": "root",
 <<<<<<< HEAD
+    "password": "Berkowitz5!",
+=======
+<<<<<<< HEAD
     "password": "Mogwai123",
     "database": "testdb",
 =======
     "password": "password",
+>>>>>>> 48f7c6478cfbce701c143854aaf17924120bdaa3
     "database": "traveldb",
 >>>>>>> 524b5d51a0fc826a2dceffd10e8d48518a4fb270
     "host": "localhost",
@@ -14,10 +18,14 @@
   "test": {
     "username": "root",
 <<<<<<< HEAD
+    "password": "password", 
+=======
+<<<<<<< HEAD
     "password": "Mogwai123",
     "database": "testdb",
 =======
     "password": "password",
+>>>>>>> 48f7c6478cfbce701c143854aaf17924120bdaa3
     "database": "traveldb",
 >>>>>>> 524b5d51a0fc826a2dceffd10e8d48518a4fb270
     "host": "localhost",

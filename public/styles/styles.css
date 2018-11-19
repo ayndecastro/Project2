@@ -3,5 +3,39 @@
 }
 
 body{
-  background: black;
+ background-image: url('../styles/background.jpeg');
+ 
+ background-size: 100%;
+}
+
+.wrapper {
+  display: flex;
+  width: 100%;
+}
+
+#sidebar {
+  width: 200px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  z-index: 999;
+  background-image: url('../styles/sidebackground.jpg');
+    color: #Ad974f;
+}
+
+.titleLogo{
+  color:#EAEAEA;
+
+}
+
+.navMap, .navTrip, .navBank{
+  color:#0b36b6;
+  font-family: 'Cinzel', serif;
+  font-size: 30px;
+  padding-top: 50px;
+  padding-left: 25px;
+
+ 
+
 }
