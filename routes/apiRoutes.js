@@ -5,10 +5,8 @@ let Options = require("../api/bytApi")
 
 module.exports = function(app) {
   // Get all examples
-  app.get("/api/examples", function(req, res) {
-    Options.findAll({}).then(function(dbExamples) {
-      res.json(dbExamples);
-    });
+  app.get("/", function(req, res) {
+    config.then({ });
   });
 
   // Create a new example
