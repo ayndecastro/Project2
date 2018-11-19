@@ -1,20 +1,19 @@
-"use strict";
-var request = require("request");
-var Sequelize = require("sequelize");
+// const request = require('request')
+const express = require('express');
+const request = require('request');
+const app = express(); 
 
-module.exports = function(options){
-options = { method: 'GET',
-url: 'https://www.budgetyourtrip.com/api/v3/countries/',
-headers: 
- { 'Postman-Token': '8066e5f0-9632-4642-967b-2fb2bd52c32f',
-   'cache-control': 'no-cache',
-   'x-api-key': 'vincentayndecastro' } };
 
-request(options, function (error, response, body) {
+app.get("/countries", function(req,res){
+  console.log(res)
+})
+// const promisfy = require('util').promisify
 
-if (error) throw new Error(error);
+// const pRequest = promisfy(request)
+// Request.get('https://www.budgetyourtrip.com/api/v3/countries/', function(err, req, res) {
+//    if(err){
+//      return console.dir(err)
+//    }
+//    console.dir(JSON.parse(res))
+//   });
 
-console.log("\n===============================================\n"+body+"\n===============================================");
-});
-
-}
