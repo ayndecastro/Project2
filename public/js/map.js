@@ -1,4 +1,4 @@
-// let iziModal = require('izimodal');
+// let iziModal = require('izimodal')
 
 let object = {
   'status': true,
@@ -32,10 +32,10 @@ let object = {
     }
   }
 }
+let currentURL = window.location.origin
+console.log(currentURL)
 
 jQuery(document).ready(function () {
-
-
   jQuery('#vmap').vectorMap(
     {
       map: 'world_en',
@@ -54,17 +54,31 @@ jQuery(document).ready(function () {
       selectedRegions: null,
       showTooltip: true,
       onRegionClick: function (element, code, region) {
-        var message = 'You clicked "'
-        + region
-        + '" which has the code: '
-        + code.toUpperCase()
+        event.preventDefault()
+        this.blur()
+        // var message = 'You clicked "'
+        // + region
+        // + '" which has the code: '
+        // + code.toUpperCase()
 
-        alert(message);
+        // alert(message)
 
-        $.ajax({ url: currentURL + "/costs/countryhighlights/" + code, method: "GET"})
-        .then(function(result){
-
-        })
+        $.ajax({ url: currentURL + '/costs/countryinfo/' + code, method: 'GET'})
+          .then(function (result) {
+            console.log(result)
+            let name = result.data.info.name;
+            let cost = [];
+            result.data.costs.forEach(element => {
+              cost.push(element.value_midrange);
+            });
+            console.log(name);
+            console.log(cost);
+            $("#infoName").append(name);
+            for(i=0; i < cost.length; i++) {
+              $("cat" + i).append(cost[i]);
+            }
+          }
+        )
       }
     })
 })

@@ -5,3 +5,8 @@
 body{
   background: black;
 }
+
+.dataContainer {
+  height: 600px;
+  margin: 10px;
+}
