@@ -59,7 +59,12 @@ jQuery(document).ready(function () {
         + '" which has the code: '
         + code.toUpperCase()
 
-        alert(message);XMLDocument
+        alert(message);
+
+        $.ajax({ url: currentURL + "/costs/countryhighlights/" + code, method: "GET"})
+        .then(function(result){
+
+        })
       }
     })
 })
