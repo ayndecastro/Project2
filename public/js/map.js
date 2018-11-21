@@ -1,37 +1,3 @@
-// let iziModal = require('izimodal')
-
-let object = {
-  'status': true,
-  'data': {
-    'costs': [
-      {
-        'category_id': '1',
-        'value_budget': '44.066821377509',
-        'value_midrange': '122.9595291765',
-        'value_luxury': '376.69098739016',
-        'geonameid': '5128581'
-      }
-    ],
-    'info': {
-      'geonameid': '5128581',
-      'name': 'New York City',
-      'asciiname': 'New York City',
-      'latitude': '40.7142691000',
-      'longitude': '-74.0059729000',
-      'feature_class': 'P',
-      'feature_code': 'PPL',
-      'country_code': 'US',
-      'admin1_code': 'NY',
-      'timezone': 'America\/New_York',
-      'country_name': 'United States of America',
-      'currency_code': 'USD',
-      'currency': 'Dollar (United States)',
-      'symbol': '$',
-      'statename': 'New York',
-      'url': 'http:\/\/www.budgetyourtrip.com\/united-states-of-america\/new-york-city'
-    }
-  }
-}
 let currentURL = window.location.origin
 console.log(currentURL)
 
@@ -45,7 +11,7 @@ jQuery(document).ready(function () {
       borderWidth: 1,
       backgroundColor: '#333333',
       color: '#AD974F',
-      enableZoom: true,
+      enableZoom: false,
       hoverColor: '#8E793E',
       hoverOpacity: 0.7,
       normalizeFunction: 'polynomial',
@@ -66,16 +32,18 @@ jQuery(document).ready(function () {
         $.ajax({ url: currentURL + '/costs/countryinfo/' + code, method: 'GET'})
           .then(function (result) {
             console.log(result)
-            let name = result.data.info.name;
-            let cost = [];
+            let name = result.data.info.name
+            let cost = []
             result.data.costs.forEach(element => {
-              cost.push(element.value_midrange);
-            });
-            console.log(name);
-            console.log(cost);
-            $("#infoName").append(name);
-            for(i=0; i < cost.length; i++) {
-              $("cat" + i).append(cost[i]);
+              cost.push(element.value_midrange)
+            })
+            console.log(name)
+            console.log(cost)
+            $('.infoName').html(name)
+            for (i = 0; i < cost.length; i++) {
+              $('.cat' + i).html(Math.round(cost[i]))
+              $("#ex1").modal({ show: 'fade' });
+              
             }
           }
         )
