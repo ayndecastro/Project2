@@ -1,8 +1,10 @@
 require("dotenv").config();
 var express = require("express");
 var exphbs = require("express-handlebars");
+// const mongoose = require('mongoose');
 
 var db = require("./models");
+
 
 var app = express();
 var PORT = process.env.PORT || 3000;
@@ -22,6 +24,7 @@ app.engine(
 app.set("view engine", "handlebars");
 
 // Routes
+// require('./models/Users');
 require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
 

@@ -1,5 +1,5 @@
 var db = require("../models");
-let Options = require("../api/bytApi");
+// let Options = require("../api/bytApi");
 const request = require('request')
 
 
@@ -60,6 +60,15 @@ module.exports = function(app) {
       res.json(JSON.parse(body))
     })
   })
+
+  // app.get("/:country_code/USD/")
+//   unirest.get("https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsedates/v1.0/US/USD/en-US/SFO-sky/LAX-sky/2018-12-01/2018-12-02")
+// .header("X-Mashape-Key", "9hzDJAjyrzmshqEtZ8uvXG7VafZ7p1v4nohjsnZpSWKbDjDT9G")
+// .header("X-Mashape-Host", "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com")
+// .end(function (result) {
+//   console.log(result.status, result.headers, result.body);
+// });
+
 
   
   // Create a new example
