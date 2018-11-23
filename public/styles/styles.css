@@ -3,7 +3,6 @@
 }
 
 body{
-<<<<<<< HEAD
   background: black;
 }
 
@@ -26,8 +25,7 @@ li {
   height: 125px;
   border: 1px solid #000;
   margin: 2px;
-=======
- background-image: url('../styles/background.jpeg');
+ /* background-image: url('../styles/background.jpeg'); */
  
  background-size: 100%;
 }
@@ -62,5 +60,29 @@ li {
 
  
 
->>>>>>> origin/dev
+}
+
+.centerChildren {
+  background-color:#ddd;
+    position: fixed;
+    padding: 2em;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#ex1 {
+  border: 2px solid #fff;
+  -webkit-border-radius:  26px;
+  -moz-border-radius:     26px;
+  -o-border-radius:       26px;
+  -ms-border-radius:      26px;
+  -moz-box-shadow:    1px 1px 5px rgba(0,0,0,0.5);
+  -webkit-box-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+  box-shadow:         1px 1px 5px rgba(0,0,0,0.5);
+}
+
+.accomodation:hover:after {
+  content: "accomodation" !important;
+  width: 50px;
 }
