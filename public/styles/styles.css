@@ -21,7 +21,7 @@ ul {
 
 li {
   flex: 1 1 1 20%;
-  width: 125px;
+  width: 200px;
   height: 125px;
   border: 1px solid #000;
   margin: 2px;
@@ -72,6 +72,7 @@ li {
 }
 
 #ex1 {
+  position: relative;
   border: 2px solid #fff;
   -webkit-border-radius:  26px;
   -moz-border-radius:     26px;
@@ -82,7 +83,34 @@ li {
   box-shadow:         1px 1px 5px rgba(0,0,0,0.5);
 }
 
-.accomodation:hover:after {
-  content: "accomodation" !important;
-  width: 50px;
+.card-text {
+  font-size: 9px;
+}
+
+.value {
+  position: absolute;
+    bottom: 0;
+
+}
+
+.close-button {
+  position: absolute;
+  bottom: 10%;
+  right: 15%;
+}
+.addtrip-button {
+  position: absolute;
+  bottom: 10%;
+  right: 20%;
+}
+.modal-country {
+  background-color: #0A0A0A;
+  color: #EAEAEA;
+}
+
+.bg-gold {
+  background-color: #Ad974f;
+}
+
+.card-ul {
 }
