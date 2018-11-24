@@ -114,3 +114,17 @@ li {
 
 .card-ul {
 }
+
+#slide_background {
+  transition: all 0.3s 0.3s;
+}
+#slide,
+#slide_wrapper {
+  transition: all 0.3s ease-out;
+}
+#slide {
+  transform: translateX(0) translateY(-40%);
+}
+.popup_visible #slide {
+  transform: translateX(0) translateY(0);
+}

@@ -1,7 +1,7 @@
 let currentURL = window.location.origin
-console.log(currentURL)
-var vex = require('vex-js')
-vex.registerPlugin(require('vex-dialog'))
+// console.log(currentURL)
+// var vex = require('vex-js')
+// vex.registerPlugin(require('vex-dialog'))
 vex.defaultOptions.className = 'vex-theme-os'
 
 jQuery(document).ready(function () {
@@ -52,16 +52,15 @@ jQuery(document).ready(function () {
                 closeClass: 'icon-remove',
                 closeText: 'x'
               })
-
-              vex.dialog.confirm({
-                message: 'Are you absolutely sure you want to destroy the alien planet?',
-                callback: function (value) {
-                  if (value) {
-                    console.log('Successfully destroyed the planet.')
-                  } else {
-                    console.log('Chicken.')
-                  }
-                }
+              $('#addtrip').click(function () {
+                $('.formModal').modal({
+                  show: 'fade',
+                  fadeDelay: 0.80,
+                  escapeClose: true,
+                  showClose: false,
+                  closeClass: 'icon-remove',
+                  closeText: 'x'
+                })
               })
             }
           }

@@ -5,11 +5,13 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
     crossorigin="anonymous">
   <link href="/maps/jqvmap.css" media="screen" rel="stylesheet" type="text/css">
-
+  <link rel="stylesheet" href="vex-4.0.1/dist/css/vex.css" />
+  <link rel="stylesheet" href="vex-4.0.1/dist/css/vex-theme-wireframe" />
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
     crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
   <link rel="stylesheet" href="/styles/styles.css" />
+
 
 
 
@@ -21,6 +23,9 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
   <script type="text/javascript" src="maps/jquery.vmap.js"></script>
   <script type="text/javascript" src="maps/maps/jquery.vmap.world.js" charset="utf-8"></script>
+
+  <script src="vex-4.0.1/dist/js/vex.combined.min.js"></script>
+  <script>vex.defaultOptions.className = 'vex-theme-wireframe'</script>
 
 
 
@@ -53,78 +58,78 @@
                 </li>
                 <li class="card text-white bg-dark mb-3" style="max-width: 18rem;">
                   <div class="card-header text-left">
-                      <h6 class="">Intercity Transportation</h6>
-  
-                      <span class="card-text">Travel between cities</span>
-                    </div>
+                    <h6 class="">Intercity Transportation</h6>
+
+                    <span class="card-text">Travel between cities</span>
+                  </div>
                   <h6 class="cat1 float-right value"></h6>
 
                 </li>
                 <li class="card text-white bg-dark mb-3" style="max-width: 18rem;">
-                    <div class="card-header text-left">
-                        <h6 class="">Local Transportation</h6>
-    
-                        <span class="card-text">Taxis, local buses, subway, etc.</span>
-                      </div>
+                  <div class="card-header text-left">
+                    <h6 class="">Local Transportation</h6>
+
+                    <span class="card-text">Taxis, local buses, subway, etc.</span>
+                  </div>
                   <h6 class="cat2 float-right value"></h6>
                 </li>
                 <li class="card text-white bg-dark mb-3" style="max-width: 18rem;">
                   <div class="card-header text-left">
-                      <h6 class="">Food</h6>
-  
-                      <span class="card-text">Meals for one day</span>
-                    </div>
+                    <h6 class="">Food</h6>
+
+                    <span class="card-text">Meals for one day</span>
+                  </div>
                   <h6 class="cat3 float-right value"></h6>
                 </li>
                 <li class="card text-white bg-dark mb-3" style="max-width: 18rem;">
-                    <div class="card-header text-left">
-                        <h6 class="">Water</h6>
-    
-                        <span class="card-text">Bottled water for one day</span>
-                      </div>
+                  <div class="card-header text-left">
+                    <h6 class="">Water</h6>
+
+                    <span class="card-text">Bottled water for one day</span>
+                  </div>
                   <h6 class="cat4 float-right value"></h6>
                 </li>
                 <li class="card text-white bg-dark mb-3" style="max-width: 18rem;">
-                    <div class="card-header text-left">
-                        <h6 class="">Entertainment</h6>
-    
-                        <span class="card-text">Entrance tickets, shows, etc.</span>
-                      </div>
+                  <div class="card-header text-left">
+                    <h6 class="">Entertainment</h6>
+
+                    <span class="card-text">Entrance tickets, shows, etc.</span>
+                  </div>
                   <h6 class="cat5 float-right value"></h6>
 
                 </li>
                 <li class="card text-white bg-dark mb-3" style="max-width: 18rem;">
-                    <div class="card-header text-left">
-                        <h6 class="">Souvenir</h6>
-    
-                        <span class="card-text">All purchases from gifts to personal keepsakes.</span>
-                      </div>
+                  <div class="card-header text-left">
+                    <h6 class="">Souvenir</h6>
+
+                    <span class="card-text">All purchases from gifts to personal keepsakes.</span>
+                  </div>
                   <h6 class="cat6 float-right value"></h6>
 
                 </li>
                 <li class="card text-white bg-dark mb-3" style="max-width: 18rem;">
-                  
-                    <div class="card-header text-left">
-                        <h6 class="">Communication</h6>
-    
-                        <span class="card-text">Phone calls, internet access, or postage for one day's time.</span>
-                      </div>
+
+                  <div class="card-header text-left">
+                    <h6 class="">Communication</h6>
+
+                    <span class="card-text">Phone calls, internet access, or postage for one day's time.</span>
+                  </div>
                   <h6 class="cat7 float-right value"></h6>
                 </li>
                 <li class="card text-white bg-dark mb-3" style="max-width: 18rem;">
-                    <div class="card-header text-left">
-                        <h6 class="">Living Expenses</h6>
-    
-                        <span class="card-text">Personal purchases from shampoo to laundry. Costs are for one day's time.</span>
-                      </div>
+                  <div class="card-header text-left">
+                    <h6 class="">Living Expenses</h6>
+
+                    <span class="card-text">Personal purchases from shampoo to laundry. Costs are for one day's time.</span>
+                  </div>
                   <h6 class="cat8 float-right value"></h6>
                 </li>
                 <li class="card text-white bg-dark mb-3" style="max-width: 18rem;">
-                    <div class="card-header text-left">
-                        <h6 class="">Visas</h6>
-    
-                        <span class="card-text">Required entry and exit fees.</span>
-                      </div>
+                  <div class="card-header text-left">
+                    <h6 class="">Visas</h6>
+
+                    <span class="card-text">Required entry and exit fees.</span>
+                  </div>
                   <h6 class="cat9 float-right value"></h6>
                 </li>
                 <!-- <li class="card text-white bg-dark mb-3" style="max-width: 18rem;">
@@ -136,19 +141,19 @@
                   <h6 class="cat10 float-right value"></h6>
                 </li> -->
                 <li class="card text-white bg-dark mb-3" style="max-width: 18rem;">
-                    <div class="card-header text-left">
-                        <h6 class="">Alcohol</h6>
-    
-                        <span class="card-text">Drinks imbibed, from bar hopping to wine country.</span>
-                      </div>
+                  <div class="card-header text-left">
+                    <h6 class="">Alcohol</h6>
+
+                    <span class="card-text">Drinks imbibed, from bar hopping to wine country.</span>
+                  </div>
                   <h6 class="cat11 float-right value"></h6>
                 </li>
                 <li class="card text-white bg-dark mb-3" style="max-width: 18rem;">
-                    <div class="card-header text-left">
-                        <h6 class="">Tips and Handouts</h6>
-    
-                        <span class="card-text">Tips for guides or service providers.</span>
-                      </div>
+                  <div class="card-header text-left">
+                    <h6 class="">Tips and Handouts</h6>
+
+                    <span class="card-text">Tips for guides or service providers.</span>
+                  </div>
                   <h6 class="cat12 float-right value"></h6>
                 </li>
 
@@ -158,15 +163,34 @@
         </div>
 
         <a href="#" rel="modal:close" class="float-right close-button btn btn-secondary">Close</a>
-        <button class="addtrip-button btn btn-warning text-white">Add Trip</button>
+        <button id="addtrip" class="addtrip-button btn btn-warning text-white">Add Trip</button>
+
+
       </div>
 
     </div>
   </div>
   </div>
 
-
-
+  <div class="container">
+    <div class="row">
+      <form role="form" class="modal formModal modal-lg" style="display: none">
+        <div class="form-group">
+          <label for="date">Set a Goal Date</label>
+          <input type="date" class="form-control" id="date">
+        </div>
+        <div class="form-group">
+          <label for="pwd">How often do you want to contribute to this trip?</label>
+          <input type="password" class="form-control" id="pwd">
+        </div>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox"> Remember me</label>
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form>
+    </div>
+  </div>
 
 
 
@@ -175,9 +199,7 @@
 
 
   <script type="text/javascript" src="/js/map.js"></script>
-  <script>
 
-  </script>
 </body>
 
 </html>
