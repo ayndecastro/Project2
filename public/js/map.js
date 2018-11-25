@@ -2,7 +2,6 @@ let currentURL = window.location.origin
 // console.log(currentURL)
 // var vex = require('vex-js')
 // vex.registerPlugin(require('vex-dialog'))
-vex.defaultOptions.className = 'vex-theme-os'
 
 jQuery(document).ready(function () {
   jQuery('#vmap').vectorMap(
