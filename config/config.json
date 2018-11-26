@@ -1,8 +1,8 @@
 {
     "development": {
       "username": "root",
-      "password": "vsauce321",
-      "database": "exampledb",
+      "password": "Berkowitz5!",
+      "database": "traveldb",
       "host": "localhost",
       "dialect": "mysql"
     },
