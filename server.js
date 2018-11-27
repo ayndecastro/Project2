@@ -1,7 +1,8 @@
 require("dotenv").config();
 var express = require("express");
-var exphbs = require("express-handlebars");
+// var exphbs = require("express-handlebars");
 // const mongoose = require('mongoose');
+const path = require("path")
 
 var db = require("./models/index");
 
