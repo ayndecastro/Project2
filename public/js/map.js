@@ -1,5 +1,7 @@
 let currentURL = window.location.origin
-console.log(currentURL)
+// console.log(currentURL)
+// var vex = require('vex-js')
+// vex.registerPlugin(require('vex-dialog'))
 
 jQuery(document).ready(function () {
   jQuery('#vmap').vectorMap(
@@ -41,9 +43,24 @@ jQuery(document).ready(function () {
             console.log(cost)
             $('.infoName').html(name)
             for (i = 0; i < cost.length; i++) {
-              $('.cat' + i).html(Math.round(cost[i]))
-              $("#ex1").modal({ show: 'fade' });
-              
+              $('.cat' + i).html('$' + Math.round(cost[i]))
+              $('#ex1').modal({ show: 'fade',
+                fadeDelay: 0.80,
+                escapeClose: true,
+                showClose: false,
+                closeClass: 'icon-remove',
+                closeText: 'x'
+              })
+              $('#addtrip').click(function () {
+                $('.formModal').modal({
+                  show: 'fade',
+                  fadeDelay: 0.80,
+                  escapeClose: true,
+                  showClose: false,
+                  closeClass: 'icon-remove',
+                  closeText: 'x'
+                })
+              })
             }
           }
         )
