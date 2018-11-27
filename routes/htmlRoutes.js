@@ -16,6 +16,9 @@ module.exports = function(app) {
     });
   });
 
+  //load register page
+  app.get("/register", (req,res) => res.send('register', {user: req.user}))
+
   // Render 404 page for any unmatched routes
   app.get("*", function(req, res) {
     res.send("404");

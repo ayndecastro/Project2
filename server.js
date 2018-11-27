@@ -1,11 +1,13 @@
 require("dotenv").config();
 var express = require("express");
 var exphbs = require("express-handlebars");
+// const mongoose = require('mongoose');
 
-var db = require("./models");
+var db = require("./models/index");
+
 
 var app = express();
-var PORT = process.env.PORT || 3000;
+var PORT = 3000 || process.env.PORT;
 
 // Middleware
 app.use(express.urlencoded({ extended: false }));
@@ -22,8 +24,10 @@ app.engine(
 app.set("view engine", "handlebars");
 
 // Routes
+// require('./models/Users');
 require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
+require("./routes/userRoutes");
 
 var syncOptions = { force: false };
 
