@@ -9,14 +9,14 @@
     crossorigin="anonymous">
   <link href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+
   <link rel="stylesheet" href="styles/styles.css" />
   <link href="https://fonts.googleapis.com/css?family=Cinzel|Courgette" rel="stylesheet">
-
-
-
   <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
-  <script src="https://unpkg.com/surveyjs-widgets"></script>
-  <script src="https://surveyjs.azureedge.net/1.0.53/survey.jquery.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
     crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
@@ -34,7 +34,7 @@
 <body>
   <div class="container-fluid">
     <div class="mainContent">
-            
+
 
       <div id="vmap" class=""></div>
 
@@ -175,25 +175,24 @@
   </div>
 
   <div class="container ">
-    <div class="row ">
-      <div class="modal formModal modal-lg formContainer" style="display: none">
-        <div class="form-style-8 col-6 float-right">
-          <h2>Login to your account</h2>
+    <div class="row h-100">
+      <div class="col-12 modal formModal modal-lg formContainer" style="display: none">
+        <div class="bankForm col-6 float-right">
 
-          <div id="surveyElement"></div>
-          <div id="surveyResult"></div>
-          <!-- <form>
-            <input id="datepicker" type="text" name="field1" placeholder="Date" />
-            <input type="email" name="field2" placeholder="Email" />
-            <input type="url" name="field3" placeholder="Website" />
-            <textarea placeholder="Message" onkeyup="adjust_textarea(this)"></textarea>
-            <input type="button" value="Send Message" />
-          </form> -->
+          <h1 class="border border-danger bankForm-question">Question goes here</h1>
+
+          <div id="sandbox-container">
+            <input type="text" name="datefilter" value="" />
+
+          </div>
+
+
         </div>
-        <div class="col-6"></div>
       </div>
     </div>
   </div>
+
+
   <!-- Sidebar -->
   <div class="wrapper col-2">
     <nav id="sidebar">
@@ -204,16 +203,19 @@
       <ul class="list-unstyled components">
         <br>
         <p>
-          <a class="navbar-brand  navMap" href="#">
-            <img src="styles/navMapIMG.jpeg" width="100 " height="100" class="d-inline-block align-top" alt=""> <br>Map</a>
+          <a class="navbar-brand navMap" href="#">
+            <img src="styles/navMapIMG.jpeg" width="100 " height="100" class="d-inline-block align-top" alt="">
+            <br>Map</a>
           <p>
             <a class="navbar-brand navBank" href="#">
-              <img src="styles/navBankIMG.jpg" width="100" height="100" class="d-inline-block align-top" alt=""> <br>
-              Bank</a>
+              <img src="styles/navBankIMG.jpg" width="100" height="100" class="d-inline-block align-top" alt="">
+              <br> Bank
+            </a>
             <p>
               <a class="navbar-brand  navTrip" href="#">
-                <img src="styles/navTripIMG.jpg" width="100" height="100" class="d-inline-block align-top" alt=""> <br>
-                Trip</a>
+                <img src="styles/navTripIMG.jpg" width="100" height="100" class="d-inline-block align-top" alt="">
+                <br> Trip
+              </a>
               <p>
 
 
@@ -230,34 +232,33 @@
 
   <script type="text/javascript" src="/js/map.js"></script>
   <script>
-    Survey
-      .StylesManager
-      .applyTheme("default");
 
-    var json = {
-      "elements": [
-        {
-          "name": "date",
-          "type": "datepicker",
-          "inputType": "date",
-          "title": "Your favorite date:",
-          "dateFormat": "mm/dd/yy",
-          "isRequired": true
+    $(function () {
+
+      $('input[name="datefilter"]').daterangepicker({
+        autoUpdateInput: false,
+        locale: {
+          cancelLabel: 'Clear'
         }
-      ]
-    };
-
-    window.survey = new Survey.Model(json);
-
-    survey
-      .onComplete
-      .add(function (result) {
-        document
-          .querySelector('#surveyResult')
-          .innerHTML = "result: " + JSON.stringify(result.data);
       });
 
-    $("#surveyElement").Survey({ model: survey });
+      $('input[name="datefilter"]').on('apply.daterangepicker', function (ev, picker) {
+        $(this).val(picker.startDate.format('MM/DD/YYYY') + ' - ' + picker.endDate.format('MM/DD/YYYY'));
+      });
+
+      $('input[name="datefilter"]').on('cancel.daterangepicker', function (ev, picker) {
+        $(this).val('');
+      });
+      $('#demo').daterangepicker({
+        "startDate": "11/21/2018",
+        "endDate": "11/27/2018",
+        "drops": "up"
+      }, function (start, end, label) {
+        console.log('New date range selected: ' + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD') + ' (predefined range: ' + label + ')');
+      });
+
+    });
+
 
   </script>
 </body>

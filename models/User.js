@@ -26,7 +26,7 @@ module.exports = (sequelize, DataTypes) => {
   // the related objects
   User.associate = function ({ AuthToken, Bag }) {
     User.hasMany(AuthToken);
-    User.hasMany(Bag);
+    User.hasMany(Bag); //todo
   };
 
   // This is a class method, it is not called on an individual
