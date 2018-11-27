@@ -7,7 +7,7 @@ var db = require("./models/index");
 
 
 var app = express();
-var PORT = process.env.PORT || 3000;
+var PORT = process.env.PORT || 3306;
 
 // Middleware
 app.use(express.urlencoded({ extended: false }));
