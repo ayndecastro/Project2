@@ -3,16 +3,16 @@ var express = require("express");
 var exphbs = require("express-handlebars");
 // const mongoose = require('mongoose');
 
-var db = require("./models");
+var db = require("./models/index");
 
 
 var app = express();
-var PORT = process.env.PORT || 3000;
+var PORT = 3000 || process.env.PORT;
 
 // Middleware
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-app.use(express.static("public"));
+app.use(express.static("public/"));
 
 // Handlebars
 app.engine(
@@ -27,6 +27,7 @@ app.set("view engine", "handlebars");
 // require('./models/Users');
 require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
+require("./routes/userRoutes");
 
 var syncOptions = { force: false };
 

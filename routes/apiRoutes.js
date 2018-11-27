@@ -70,13 +70,19 @@ module.exports = function(app) {
 // });
 
 
-  
-  // Create a new example
-  app.post("/api/examples", function(req, res) {
-    db.Example.create(req.body).then(function(dbExample) {
-      res.json(dbExample);
-    });
+//get bag info
+app.get("/user", function(req,res){
+  db.User.findAll({}).then(function(dbExamples) {
+    res.json(dbExamples);
   });
+})
+
+app.get("/token", function(req,res){
+  db.AuthToken.findAll({}).then(function(token){
+    res.json(token)
+  })
+})
+
 
   // Delete an example by id
   app.delete("/api/examples/:id", function(req, res) {
