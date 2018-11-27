@@ -52,6 +52,8 @@ jQuery(document).ready(function () {
                 closeText: 'x'
               })
               $('#addtrip').click(function () {
+
+                $('.form-style-8').removeClass('hide');
                 $('.formModal').modal({
                   show: 'fade',
                   fadeDelay: 0.80,
