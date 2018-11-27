@@ -1,5 +1,5 @@
 var db = require("../models");
-let Options = require("../api/bytApi");
+// let Options = require("../api/bytApi");
 const request = require('request')
 
 
@@ -61,13 +61,28 @@ module.exports = function(app) {
     })
   })
 
-  
-  // Create a new example
-  app.post("/api/examples", function(req, res) {
-    db.Example.create(req.body).then(function(dbExample) {
-      res.json(dbExample);
-    });
+  // app.get("/:country_code/USD/")
+//   unirest.get("https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsedates/v1.0/US/USD/en-US/SFO-sky/LAX-sky/2018-12-01/2018-12-02")
+// .header("X-Mashape-Key", "9hzDJAjyrzmshqEtZ8uvXG7VafZ7p1v4nohjsnZpSWKbDjDT9G")
+// .header("X-Mashape-Host", "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com")
+// .end(function (result) {
+//   console.log(result.status, result.headers, result.body);
+// });
+
+
+//get bag info
+app.get("/user", function(req,res){
+  db.User.findAll({}).then(function(dbExamples) {
+    res.json(dbExamples);
   });
+})
+
+app.get("/token", function(req,res){
+  db.AuthToken.findAll({}).then(function(token){
+    res.json(token)
+  })
+})
+
 
   // Delete an example by id
   app.delete("/api/examples/:id", function(req, res) {
