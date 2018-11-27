@@ -45,14 +45,13 @@ li {
 }
 
 #sidebar {
-  width: 200px;
+  width: 150px;
   position: fixed;
   top: 0;
   left: 0;
   height: 100vh;
   z-index: 999;
-  background-image: url('../styles/sidebackground.jpg');
-    color: #Ad974f;
+  background-color: #333333;
 }
 
 .titleLogo{
@@ -61,13 +60,19 @@ li {
 }
 
 .navMap, .navTrip, .navBank{
-  color:#0b36b6;
+  color:#EAEAEA;
   font-family: 'Cinzel', serif;
-  font-size: 30px;
+  font-size: 20px;
   padding-top: 50px;
   padding-left: 25px;
+  
 
  
+
+}
+
+a:hover{
+  color: #Ad974f;
 
 }
 
