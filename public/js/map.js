@@ -73,7 +73,7 @@ jQuery(document).ready(function () {
               console.log('difference in dates ' + d)
               console.log('cost per day ' + cost[12])
               console.log('total cost of travel dates ' + d * cost[12]);
-              let Budget = d* cost[12];
+              let totalCost = d* cost[12];
               let dateCurrent = moment()
               // console.log(dateCurrent)
               let a = start.diff(dateCurrent, 'days')
@@ -87,13 +87,15 @@ jQuery(document).ready(function () {
                 $('.dateLeave').html(start.format('mm/dd/yy'));
                 $('.dailyIncrement').html(dailyIncrement);
                 $('.Country').html(name);
-                $('#Budget').html(Budget);
+                $('#Budget').html(totalCost);
                 $('.travelInfo').toggle();
+
                 let Bank = {
                   Country: name,
                   Balance: 0,
                   DatesStay: d,
                   DateLeave: start,
+                  totalCost: totalCost,
                   dailyIncrement: dailyIncrement
                 } //to do post to db
               })
