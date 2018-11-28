@@ -7,6 +7,10 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, "../views/map.html"));
   });
 
+  app.get("/login", function(req, res) {
+    res.sendFile(path.join(__dirname, "../views/login.html"));
+  });
+
   // Load example page and pass in an example by id
   app.get("/example/:id", function(req, res) {
     db.Example.findOne({ where: { id: req.params.id } }).then(function(dbExample) {
@@ -15,6 +19,9 @@ module.exports = function(app) {
       });
     });
   });
+
+  //load register page
+  app.get("/register", (req,res) => res.send('register', {user: req.user}))
 
   // Render 404 page for any unmatched routes
   app.get("*", function(req, res) {

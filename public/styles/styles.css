@@ -2,6 +2,22 @@
   line-height: 2.5;
 }
 
+
+.formContainer {
+  height: 800px;
+  width: auto;
+  background-color: black;
+  
+  border: 2px solid #Ad974f;
+  -webkit-border-radius:  26px;
+  -moz-border-radius:     26px;
+  -o-border-radius:       26px;
+  -ms-border-radius:      26px;
+  -moz-box-shadow:    1px 1px 5px rgba(0,0,0,0.5);
+  -webkit-box-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+  box-shadow:         1px 1px 5px rgba(0,0,0,0.5);
+}
+
 body{
   background: #333333;
 }
@@ -25,7 +41,6 @@ li {
   height: 125px;
   border: 1px solid #000;
   margin: 2px;
- /* background-image: url('../styles/background.jpeg'); */
  
  background-size: 100%;
 }
@@ -45,6 +60,12 @@ li {
   z-index: 999;
   background-color: #1d1d1d;
   border-right: 3px ridge #Ad974f;
+
+}
+
+.mainText{
+  color:#EAEAEA;
+  font-family: 'Cinzel', serif;
 
 }
 
@@ -94,7 +115,7 @@ li {
 
 }
 
-.navMap, .navTrip, .navBank, #sidebar{
+.navMap, .navTrip, .navBank, #sidebar, .mainText{
   color:#EAEAEA;
   font-family: 'Cinzel', serif;
   font-size: 30px;
@@ -127,7 +148,7 @@ a:hover{
 
 #ex1 {
   position: relative;
-  border: 2px solid #fff;
+  border: 2px solid #Ad974f;
   -webkit-border-radius:  26px;
   -moz-border-radius:     26px;
   -o-border-radius:       26px;
@@ -181,4 +202,59 @@ a:hover{
 }
 .popup_visible #slide {
   transform: translateX(0) translateY(0);
+}
+
+.login-container{
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+.login-logo{
+  position: relative;
+  margin-left: -41.5%;
+}
+.login-logo img{
+  position: absolute;
+  width: 20%;
+  margin-top: 19%;
+  background: #282726;
+  border-radius: 4.5rem;
+  padding: 5%;
+}
+
+
+.btnSubmit{
+  font-weight: 600;
+  width: 50%;
+  color: #282726;
+  background-color: #fff;
+  border: none;
+  border-radius: 1.5rem;
+  padding:2%;
+}
+.btnForgetPwd{
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+}
+.btnForgetPwd:hover{
+  text-decoration:none;
+  color:#fff;
+}
+.hide {
+  display: none;
+}
+
+.loginPage{
+height:100vh;
+overflow:hidden;
+background:#282726;
+
+}
+
+.loginCenter{
+  position:fixed;
+  top:20%;
+  right:62%;
+
+
 }

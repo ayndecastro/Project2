@@ -51,17 +51,25 @@ jQuery(document).ready(function () {
                 closeClass: 'icon-remove',
                 closeText: 'x'
               })
-              $('#addtrip').click(function () {
-                $('.formModal').modal({
-                  show: 'fade',
-                  fadeDelay: 0.80,
-                  escapeClose: true,
-                  showClose: false,
-                  closeClass: 'icon-remove',
-                  closeText: 'x'
-                })
-              })
             }
+
+            $('#addtrip').click(function () {
+              $('.formModal').modal({
+                show: 'fade',
+                fadeDelay: 0.80,
+                escapeClose: true,
+                showClose: false,
+                closeClass: 'icon-remove',
+                closeText: 'x'
+              })
+            })
+
+          // let Bank = {
+          //   country: name,
+          //   balance: balance,
+          //   DateStay: DateStay,
+          //   DateLeave: DateLeave
+          // }
           }
         )
       }
