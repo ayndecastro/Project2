@@ -1,7 +1,7 @@
 
 "use strict";
 var request = require("request");
-var Sequelize = require("sequelize");
+// var Sequelize = require("sequelize");
 const promisify = require('util').promisify
 
 const fetch = promisify(request);

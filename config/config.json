@@ -1,6 +1,7 @@
 {
   "development": {
     "username": "root",
+
     "password": "Mogwai123",
     "database": "bagDb",
     "host": "localhost",
