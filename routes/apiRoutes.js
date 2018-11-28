@@ -22,7 +22,6 @@ module.exports = function (app) {
       url: 'https://www.budgetyourtrip.com/api/v3/costs/countryinfo/' + req.params.country_code,
       headers: {'x-api-key': 'vincentayndecastro'}
     }, function (error, result, body) {
-      console.log(result)
       res.json(JSON.parse(body))
     })
   })
