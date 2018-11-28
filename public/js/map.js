@@ -31,11 +31,14 @@ jQuery(document).ready(function () {
 
         // alert(message)
 
+        let name;
+        let cost = [];
+
         $.ajax({ url: currentURL + '/costs/countryinfo/' + code, method: 'GET'})
           .then(function (result) {
             console.log(result)
-            let name = result.data.info.name
-            let cost = []
+            name = result.data.info.name
+            cost = []
             result.data.costs.forEach(element => {
               cost.push(element.value_midrange)
             })
@@ -70,25 +73,26 @@ jQuery(document).ready(function () {
               let future = moment(picker.endDate);
               let start = moment(picker.startDate);
               let d = future.diff(start, 'days'); 
-              console.log(d);
-              console.log(result.data.costs[12].value_midrange)
-              console.log(d*result.data.costs[12].value_midrange);
-              let dateCreated = moment(new Date('MM/DD/YYYY'));
-              console.log(dateCreated)
-              let a = start.diff(dateCreated, 'days');
-              console.log(a)
-
-
+              console.log("difference in dates " + d);
+              console.log("cost per day " + cost[12])
+              console.log("total cost of travel dates " + d*cost[12]);
+              let dateCurrent = moment();
+              // console.log(dateCurrent)
+              let a = start.diff(dateCurrent, 'days');
+              console.log("date difference from today to start of travel " + a + "days")
+              let dailyIncrement = (d*cost[12])/a;
+              console.log(dailyIncrement);
+              let Bank = {
+                country: name,
+                balance: 0,
+                DatesStay: d,
+                DateLeave: start,
+                dailyIncrement: dailyIncrement
+              }
+              console.log(Bank)
       
             });
             
-
-          // let Bank = {
-          //   country: name,
-          //   balance: balance,
-          //   DateStay: DateStay,
-          //   DateLeave: DateLeave
-          // }
           }
         )
       }

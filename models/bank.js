@@ -13,6 +13,9 @@ module.exports = (sequelize, DataTypes) => {
     DateLeave: {
       type: DataTypes.DATEONLY
     },
+    dailyIncrement: {
+      type: DataTypes.INTEGER
+    },
 
     // Timestamps
     createdAt: DataTypes.DATEONLY,
