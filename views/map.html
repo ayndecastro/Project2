@@ -28,8 +28,11 @@
 </head>
 
 <body>
-  <div class="container-fluid">
+  
+  <div class="container-fluid toggleBackground">
     <div class="mainContent">
+      <!--Toggle Button for SideBar-->
+  
       <div id="vmap" class=""></div>
 
 
@@ -187,32 +190,40 @@
       </form>
     </div>
   </div>
+
+  
   <!-- Sidebar -->
-  <div class="wrapper col-2">
+
+  <div class="wrapper text-center">
     <nav id="sidebar">
+      
       <div class="sidebar-header">
         <h3 class="titleLogo"></h3>
       </div>
 
-      <ul class="list-unstyled components">
+      <div id="content" class="list-unstyled components mx-auto">
         <br>
-        <p>
-          <a class="navbar-brand  navMap" href="#">
-            <img src="styles/navMapIMG.jpeg" width="100 " height="100" class="d-inline-block align-top" alt=""> <br>Map</a>
-          <p>
-            <a class="navbar-brand navBank" href="#">
-              <img src="styles/navBankIMG.jpg" width="100" height="100" class="d-inline-block align-top" alt=""> <br>
-              Bank</a>
-            <p>
-              <a class="navbar-brand  navTrip" href="#">
-                <img src="styles/navTripIMG.jpg" width="100" height="100" class="d-inline-block align-top" alt=""> <br>
-                Trip</a>
-              <p>
+        <br>
 
+        <a class="navbar-brand navMap" href="#"><br>Map</a>
 
-      </ul>
+        <a class="navbar-brand navBank" href="#"><br>Bank</a>
+
+        <a class="navbar-brand  navTrip" href="#"><br>Trip</a>
+
+        
+
+      </div>
+
     </nav>
 
+  
+    <button type="button" id="sidebarCollapse" class="btn btn-info col-ml-2">
+        <i class="fas fa-align-left"></i>
+        <span>Menu</span>
+    </button>
+  
+ 
 
   </div>
 
