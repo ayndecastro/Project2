@@ -62,7 +62,26 @@ jQuery(document).ready(function () {
                 closeClass: 'icon-remove',
                 closeText: 'x'
               })
-            })
+            });
+
+            $('input[name="datefilter"]').on('apply.daterangepicker', function (ev, picker) {
+              $(this).val(picker.startDate.format('MM/DD/YYYY') + ' - ' + picker.endDate.format('MM/DD/YYYY'));
+      
+              let future = moment(picker.endDate);
+              let start = moment(picker.startDate);
+              let d = future.diff(start, 'days'); 
+              console.log(d);
+              console.log(result.data.costs[12].value_midrange)
+              console.log(d*result.data.costs[12].value_midrange);
+              let dateCreated = moment(new Date('MM/DD/YYYY'));
+              console.log(dateCreated)
+              let a = start.diff(dateCreated, 'days');
+              console.log(a)
+
+
+      
+            });
+            
 
           // let Bank = {
           //   country: name,
