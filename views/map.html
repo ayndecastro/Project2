@@ -179,9 +179,9 @@
       <div class="modal formModal modal-lg formContainer" style="display: none">
         <div class="bankForm float-left">
 
-          <h1 class="bankForm-question display-2">What are your travel dates?</h1>
+          <h1 class="bankForm-question display-2 m-5 text-white">What are your travel dates?</h1>
 
-          <div id="sandbox-container" class="ml-5">
+          <div id="sandbox-container" class="ml-5 ">
             <input type="text" name="datefilter" value="" />
 
           </div>
@@ -245,20 +245,13 @@
       $('input[name="datefilter"]').on('apply.daterangepicker', function (ev, picker) {
         $(this).val(picker.startDate.format('MM/DD/YYYY') + ' - ' + picker.endDate.format('MM/DD/YYYY'));
         console.log(picker.startDate.format('MM/DD/YY'));
-        console.log(picker.endDate.format('MM/DD/YY'))
+        console.log(picker.endDate.format('MM/DD/YY'));
       });
 
       $('input[name="datefilter"]').on('cancel.daterangepicker', function (ev, picker) {
         $(this).val('');
       });
 
-      $('#demo').daterangepicker({
-        "startDate": "11/21/2018",
-        "endDate": "11/27/2018",
-        "drops": "up"
-      }, function (start, end, label) {
-        console.log('New date range selected: ' + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD') + ' (predefined range: ' + label + ')');
-      });
 
     });
 

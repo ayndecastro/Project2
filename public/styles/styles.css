@@ -192,3 +192,10 @@ a:hover{
 .hide {
   display: none;
 }
+
+input[type=text] {
+  background: black;
+  color: #EAEAEA;
+  border: 2px solid #Ad974f;
+  border-radius: 4px;
+}
