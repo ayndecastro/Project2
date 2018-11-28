@@ -8,8 +8,8 @@ var db = require("./models/index");
 
 
 var app = express();
-var PORT = process.env.PORT || 3000;
-// var PORT = 3000 || process.env.PORT;
+// var PORT = process.env.PORT || 3000;
+var PORT = 3000 || process.env.PORT;
 
 // Middleware
 app.use(express.urlencoded({ extended: false }));

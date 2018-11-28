@@ -25,10 +25,9 @@ module.exports = function(app) {
     console.log("/costs/countryinfo/country_code/" +req.params.country_code)
     request.get({
       url: "https://www.budgetyourtrip.com/api/v3/costs/countryinfo/" + req.params.country_code,
-      headers: {"x-api-key": "vincentayndecastro"}
+      headers: {"x-api-key": process.env.API_KEY}
     }, function(error,response,body){
-
-      res.json(JSON.parse(body))
+      res.json(JSON.parse(body));
     })
   })
 
@@ -54,6 +53,17 @@ module.exports = function(app) {
     console.log("/search/country/" + req.params.name)
     request.get({
       url: "https://www.budgetyourtrip.com/api/v3/search/country/" + req.params.name,
+      headers: {"x-api-key": "vincentayndecastro"}
+    }, function(error,response,body){
+
+      res.json(JSON.parse(body))
+    })
+  })
+
+  app.get("/currencies/convert/:from/USD/:amount", function(req,res){
+    console.log("https://www.budgetyourtrip.com/api/v3/currencies/convert/" + req.params.from + "/USD")
+    request.get({
+      url: "https://www.budgetyourtrip.com/api/v3/currencies/convert/" + req.params.from + "/USD/" + req.params.amount,
       headers: {"x-api-key": "vincentayndecastro"}
     }, function(error,response,body){
 
