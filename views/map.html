@@ -188,75 +188,93 @@
 
           </div>
 
+          <div class="travelInfo hide">
+            <div>Starting
+              <div class="dateLeave"></div>,
+              <div class="dailyIncrement"></div> will be contributed to the trip '
+              <div class="Country"></div>'
+              <ul>
+                <li class="Country"></li>
+                <li id="Budget"></li>
+                <li class="dateLeave"></li>
+                <li>Contribute
+                  <div class="dailyIncrement"> every day.</div>
+                </li>
+              </ul>
 
+            </div>
+          </div>
+          <button id="confirmBtn" class="btn btn-warning"> Confirm trip </button>
         </div>
       </div>
     </div>
-  </div>
 
-  <!-- Sidebar -->
+    <!-- Sidebar -->
 
-  <div class="wrapper text-center">
-    <nav id="sidebar">
+    <div class="wrapper text-center">
+      <nav id="sidebar">
 
-      <div class="sidebar-header">
-        <h3 class="titleLogo"></h3>
-      </div>
+        <div class="sidebar-header">
+          <h3 class="titleLogo"></h3>
+        </div>
 
-      <div id="content" class="list-unstyled components mx-auto">
-        <br>
-        <br>
+        <div id="content" class="list-unstyled components mx-auto">
+          <br>
+          <br>
 
-        <a class="navbar-brand navMap" href="#"><br>Map</a>
+          <a class="navbar-brand navMap" href="#">
+            <br>Map</a>
 
-        <a class="navbar-brand navBank" href="#"><br>Bank</a>
+          <a class="navbar-brand navBank" href="#">
+            <br>Bank</a>
 
-        <a class="navbar-brand  navTrip" href="#"><br>Trip</a>
-
-
-
-      </div>
-
-    </nav>
-
-
-    <button type="button" id="sidebarCollapse" class="btn btn-info col-ml-2">
-      <i class="fas fa-align-left"></i>
-      <span>Menu</span>
-    </button>
+          <a class="navbar-brand  navTrip" href="#">
+            <br>Trip</a>
 
 
 
-  </div>
+        </div>
+
+      </nav>
+
+
+      <button type="button" id="sidebarCollapse" class="btn btn-info col-ml-2">
+        <i class="fas fa-align-left"></i>
+        <span>Menu</span>
+      </button>
+
+
+
+    </div>
 
 
 
 
 
 
-  <script type="text/javascript" src="/js/map.js"></script>
-  <script>
+    <script type="text/javascript" src="/js/map.js"></script>
+    <script>
 
-    $(function () {
+      $(function () {
 
-      $('input[name="datefilter"]').daterangepicker({
-        autoUpdateInput: false,
-        locale: {
-          cancelLabel: 'Clear'
-        }
+        $('input[name="datefilter"]').daterangepicker({
+          autoUpdateInput: false,
+          locale: {
+            cancelLabel: 'Clear'
+          }
+        });
+
+
+
+        $('input[name="datefilter"]').on('cancel.daterangepicker', function (ev, picker) {
+          $(this).val('');
+        });
+
+
       });
 
-      
 
-      $('input[name="datefilter"]').on('cancel.daterangepicker', function (ev, picker) {
-        $(this).val('');
-      });
-
-
-    });
-
-
-  </script>
+    </script>
 </body>
 
 </html>

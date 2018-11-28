@@ -1,7 +1,4 @@
 let currentURL = window.location.origin
-// console.log(currentURL)
-// var vex = require('vex-js')
-// vex.registerPlugin(require('vex-dialog'))
 
 jQuery(document).ready(function () {
   jQuery('#vmap').vectorMap(
@@ -31,8 +28,8 @@ jQuery(document).ready(function () {
 
         // alert(message)
 
-        let name;
-        let cost = [];
+        let name
+        let cost = []
 
         $.ajax({ url: currentURL + '/costs/countryinfo/' + code, method: 'GET'})
           .then(function (result) {
@@ -65,34 +62,42 @@ jQuery(document).ready(function () {
                 closeClass: 'icon-remove',
                 closeText: 'x'
               })
-            });
+            })
 
             $('input[name="datefilter"]').on('apply.daterangepicker', function (ev, picker) {
-              $(this).val(picker.startDate.format('MM/DD/YYYY') + ' - ' + picker.endDate.format('MM/DD/YYYY'));
-      
-              let future = moment(picker.endDate);
-              let start = moment(picker.startDate);
-              let d = future.diff(start, 'days'); 
-              console.log("difference in dates " + d);
-              console.log("cost per day " + cost[12])
-              console.log("total cost of travel dates " + d*cost[12]);
-              let dateCurrent = moment();
+              $(this).val(picker.startDate.format('MM/DD/YYYY') + ' - ' + picker.endDate.format('MM/DD/YYYY'))
+
+              let future = moment(picker.endDate)
+              let start = moment(picker.startDate)
+              let d = future.diff(start, 'days')
+              console.log('difference in dates ' + d)
+              console.log('cost per day ' + cost[12])
+              console.log('total cost of travel dates ' + d * cost[12]);
+              let Budget = d* cost[12];
+              let dateCurrent = moment()
               // console.log(dateCurrent)
-              let a = start.diff(dateCurrent, 'days');
-              console.log("date difference from today to start of travel " + a + "days")
-              let dailyIncrement = (d*cost[12])/a;
-              console.log(dailyIncrement);
-              let Bank = {
-                country: name,
-                balance: 0,
-                DatesStay: d,
-                DateLeave: start,
-                dailyIncrement: dailyIncrement
-              }
-              console.log(Bank)
-      
-            });
-            
+              let a = start.diff(dateCurrent, 'days')
+              console.log('date difference from today to start of travel ' + a + 'days')
+              let dailyIncrement = (d * cost[12]) / a
+              console.log(dailyIncrement)
+
+              $('#confirmBtn').on('click', function () {
+
+                // append to html
+                $('.dateLeave').html(start.format('mm/dd/yy'));
+                $('.dailyIncrement').html(dailyIncrement);
+                $('.Country').html(name);
+                $('#Budget').html(Budget);
+                $('.travelInfo').toggle();
+                let Bank = {
+                  Country: name,
+                  Balance: 0,
+                  DatesStay: d,
+                  DateLeave: start,
+                  dailyIncrement: dailyIncrement
+                } //to do post to db
+              })
+            })
           }
         )
       }

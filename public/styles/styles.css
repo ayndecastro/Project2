@@ -26,6 +26,8 @@ body{
   max-width: 80% !important;
   width: 100%;
   height: 80%;
+  max-height: calc(100vh - 210px);
+    overflow-y: auto;
 }
 
 ul {
@@ -175,6 +177,8 @@ a:hover{
 .modal-country {
   background-color: #0A0A0A;
   color: #EAEAEA;
+  max-height: calc(100vh - 210px);
+    overflow-y: auto;
 }
 
 .bg-gold {
@@ -247,4 +251,9 @@ input[type=text] {
   color: #EAEAEA;
   border: 2px solid #Ad974f;
   border-radius: 4px;
+}
+
+.travelInfo {
+  background: #333333;
+  color: #EAEAEA;
 }
