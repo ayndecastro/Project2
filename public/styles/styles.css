@@ -81,16 +81,7 @@ li {
   
 }
 #sidebarCollapse:active{
-  position: fixed;
-  top: 5%;
-  left:1.5%;
-  z-index:1000;
-  background-color: #Ad974f;
   border:#Ad974f;
-  color:#EAEAEA;
-  font-family: 'Cinzel', serif;
-  font-size: 20px;
-  padding-top: 5px;
 
 }
 

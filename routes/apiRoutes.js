@@ -24,17 +24,10 @@ module.exports = function(app) {
   app.get("/costs/countryinfo/:country_code", function(req,res){
     console.log("/costs/countryinfo/country_code/" +req.params.country_code)
     request.get({
-<<<<<<< HEAD
-      url: 'https://www.budgetyourtrip.com/api/v3/costs/countryinfo/' + req.params.country_code,
-      headers: {'x-api-key': 'vincentayndecastro'}
-    }, function (error, response, body) {
-      // console.log(body.data.cost)
-=======
       url: "https://www.budgetyourtrip.com/api/v3/costs/countryinfo/" + req.params.country_code,
       headers: {"x-api-key": "vincentayndecastro"}
     }, function(error,response,body){
 
->>>>>>> 9807655b388f9ade7b2113547a6b529861d3b392
       res.json(JSON.parse(body))
     })
   })
