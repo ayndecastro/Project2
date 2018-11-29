@@ -84,7 +84,7 @@ jQuery(document).ready(function () {
               $('#confirmBtn').on('click', function () {
 
                 // append to html
-                $('.dateLeave').html(start.format('mm/dd/yy'));
+                $('.dateLeave').html(start.format('MM/DD/YY'));
                 $('.dailyIncrement').html(dailyIncrement);
                 $('.Country').html(name);
                 $('#Budget').html(Budget);

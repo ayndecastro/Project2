@@ -22,7 +22,7 @@ module.exports = function (app) {
       url: 'https://www.budgetyourtrip.com/api/v3/costs/countryinfo/' + req.params.country_code,
       headers: {'x-api-key': 'vincentayndecastro'}
     }, function (error, response, body) {
-      console.log(body.data.cost)
+      // console.log(body.data.cost)
       res.json(JSON.parse(body))
     })
   })
@@ -75,19 +75,5 @@ module.exports = function (app) {
     db.Example.destroy({ where: { id: req.params.id } }).then(function (dbExample) {
       res.json(dbExample)
     })
-  })
-
-
-  app.post('/api/bank', function (req, res) {
-    
-    db.Bank.create({
-      Country: req.body.Country,
-      Balance: req.body.Balance,
-      DateStay: req.body.DateStay,
-      DateLeave: req.body.DateLeave
-    })
-      .then(function (dbPost) {
-        res.json(dbPost)
-      })
   })
 }
