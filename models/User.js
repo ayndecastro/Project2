@@ -15,10 +15,6 @@ module.exports = (sequelize, DataTypes) => {
     password: {
       type: DataTypes.STRING,
       allowNull: false,
-    },
-    uuid: {
-      type: DataTypes.UUID,
-      primaryKey: true
     }
   });
 

@@ -27,6 +27,7 @@
     "jsonwebtoken": "^8.4.0",
     "mongoose": "^5.3.13",
     "mysql2": "^1.5.3",
+    "nodemon": "^1.18.7",
     "path": "^0.12.7",
     "promisify": "0.0.3",
     "rapidapi-connect": "0.0.6",

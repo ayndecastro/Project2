@@ -62,6 +62,43 @@ jQuery(document).ready(function () {
                 })
               })
             }
+
+            $('input[name="datefilter"]').on('apply.daterangepicker', function (ev, picker) {
+              $(this).val(picker.startDate.format('MM/DD/YYYY') + ' - ' + picker.endDate.format('MM/DD/YYYY'))
+
+              let future = moment(picker.endDate)
+              let start = moment(picker.startDate)
+              let d = future.diff(start, 'days')
+              console.log('difference in dates ' + d)
+              console.log('cost per day ' + cost[12])
+              console.log('total cost of travel dates ' + d * cost[12]);
+              let totalCost = d* cost[12];
+              let dateCurrent = moment()
+              // console.log(dateCurrent)
+              let a = start.diff(dateCurrent, 'days')
+              console.log('date difference from today to start of travel ' + a + 'days')
+              let dailyIncrement = (d * cost[12]) / a
+              console.log(dailyIncrement)
+
+              $('#confirmBtn').on('click', function () {
+
+                // append to html
+                $('.dateLeave').html(start.format('MM/DD/YY'));
+                $('.dailyIncrement').html(dailyIncrement);
+                $('.Country').html(name);
+                $('#Budget').html(totalCost);
+                $('.travelInfo').toggle();
+
+                let Bank = {
+                  Country: name,
+                  Balance: 0,
+                  DatesStay: d,
+                  DateLeave: start,
+                  totalCost: totalCost,
+                  dailyIncrement: dailyIncrement
+                } //to do post to db
+              })
+            })
           }
         )
       }
