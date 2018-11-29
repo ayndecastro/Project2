@@ -13,6 +13,9 @@ module.exports = (sequelize, DataTypes) => {
     DateLeave: {
       type: DataTypes.DATEONLY
     },
+    TotalCost: {
+      type: DataTypes.INTEGER
+    },
     dailyIncrement: {
       type: DataTypes.INTEGER
     },
