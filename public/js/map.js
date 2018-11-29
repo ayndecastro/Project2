@@ -30,6 +30,7 @@ jQuery(document).ready(function() {
 
       // alert(message)
 
+      
       $.ajax({
         url: currentURL + "/costs/countryinfo/" + code,
         method: "GET"
