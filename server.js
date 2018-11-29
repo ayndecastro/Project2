@@ -1,20 +1,29 @@
 require("dotenv").config();
 var express = require("express");
-var exphbs = require("express-handlebars");
+// var exphbs = require("express-handlebars");
 // const mongoose = require('mongoose');
+const path = require("path")
 
 var db = require("./models/index");
 
 
 var app = express();
-var PORT = 3000 || process.env.PORT;
+var PORT = process.env.PORT || 3000;
+// var PORT = 3000 || process.env.PORT;
 
 // Middleware
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-app.use(express.static("public/"));
+app.use(express.static(path.join(__dirname, "public/")));
 
-
+// // Handlebars
+// app.engine(
+//   "handlebars",
+//   exphbs({
+//     defaultLayout: "main"
+//   })
+// );
+// app.set("view engine", "handlebars");
 
 // Routes
 // require('./models/Users');

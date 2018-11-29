@@ -1,4 +1,7 @@
 let currentURL = window.location.origin
+// console.log(currentURL)
+// var vex = require('vex-js')
+// vex.registerPlugin(require('vex-dialog'))
 
 jQuery(document).ready(function () {
   jQuery('#vmap').vectorMap(
@@ -28,14 +31,11 @@ jQuery(document).ready(function () {
 
         // alert(message)
 
-        let name
-        let cost = []
-
         $.ajax({ url: currentURL + '/costs/countryinfo/' + code, method: 'GET'})
           .then(function (result) {
             console.log(result)
-            name = result.data.info.name
-            cost = []
+            let name = result.data.info.name
+            let cost = []
             result.data.costs.forEach(element => {
               cost.push(element.value_midrange)
             })
@@ -51,17 +51,19 @@ jQuery(document).ready(function () {
                 closeClass: 'icon-remove',
                 closeText: 'x'
               })
-            }
-
-            $('#addtrip').click(function () {
-              $('.formModal').modal({
-                show: 'fade',
-                fadeDelay: 0.80,
-                escapeClose: true,
-                showClose: false,
-                closeClass: 'icon-remove',
-                closeText: 'x'
+              $('#addtrip').click(function () {
+                $('.formModal').modal({
+                  show: 'fade',
+                  fadeDelay: 0.80,
+                  escapeClose: true,
+                  showClose: false,
+                  closeClass: 'icon-remove',
+                  closeText: 'x'
+                })
               })
+<<<<<<< HEAD
+            }
+=======
             })
 
             $('input[name="datefilter"]').on('apply.daterangepicker', function (ev, picker) {
@@ -100,6 +102,7 @@ jQuery(document).ready(function () {
                 } //to do post to db
               })
             })
+>>>>>>> d71a67d4d0966129ed39f37beafc5dc19a4c422d
           }
         )
       }

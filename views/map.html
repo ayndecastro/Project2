@@ -7,25 +7,20 @@
   <link href="/maps/jqvmap.css" media="screen" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
     crossorigin="anonymous">
-  <link href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
-  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+  <link rel="stylesheet" href="./styles/styles.css" />
 
-  <link rel="stylesheet" href="styles/styles.css" />
-  <link href="https://fonts.googleapis.com/css?family=Cinzel|Courgette" rel="stylesheet">
-  <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment-with-locales.min.js"></script>
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+
+
+
+  <script src="https://code.jquery.com/jquery.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
     crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
     crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
-  <script type="text/javascript" src="maps/jquery.vmap.js"></script>
-  <script type="text/javascript" src="maps/maps/jquery.vmap.world.js" charset="utf-8"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script type="text/javascript" src="./maps/jquery.vmap.js"></script>
+  <script type="text/javascript" src="./maps/maps/jquery.vmap.world.js" charset="utf-8"></script>
 
 
 
@@ -33,11 +28,8 @@
 </head>
 
 <body>
-
-  <div class="container-fluid toggleBackground">
+  <div class="container-fluid">
     <div class="mainContent">
-
-
       <div id="vmap" class=""></div>
 
 
@@ -154,7 +146,9 @@
                 </li>
                 <li class="card text-white bg-dark mb-3" style="max-width: 18rem;">
                   <div class="card-header text-left">
-                    <h6 class="">Average Daily Cost</h6>
+                    <h6 class="">Tips and Handouts</h6>
+
+                    <span class="card-text">Tips for guides or service providers.</span>
                   </div>
                   <h6 class="cat12 float-right value"></h6>
                 </li>
@@ -163,8 +157,6 @@
             </div>
           </div>
         </div>
-
-
 
         <a href="#" rel="modal:close" class="float-right close-button btn btn-secondary">Close</a>
         <button id="addtrip" class="addtrip-button btn btn-warning text-white">Add Trip</button>
@@ -176,6 +168,7 @@
   </div>
   </div>
 
+<<<<<<< HEAD
   <div class="container ">
     <div class="row h-100">
       <div class="modal formModal modal-lg formContainer" >
@@ -205,76 +198,36 @@
             </div>
           </div>
           <button id="confirmBtn" class="btn btn-warning"> Confirm trip </button>
+=======
+  <div class="container">
+    <div class="row">
+      <form role="form" class="modal formModal modal-lg" style="display: none">
+        <div class="form-group">
+          <label for="date">Set a Goal Date</label>
+          <input type="date" class="form-control" id="date">
+>>>>>>> 9807655b388f9ade7b2113547a6b529861d3b392
         </div>
-      </div>
+        <div class="form-group">
+          <label for="pwd">How often do you want to contribute to this trip?</label>
+          <input type="password" class="form-control" id="pwd">
+        </div>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox"> Remember me</label>
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form>
     </div>
-
-    <!-- Sidebar -->
-
-    <div class="wrapper text-center">
-      <nav id="sidebar">
-
-        <div class="sidebar-header">
-          <h3 class="titleLogo"></h3>
-        </div>
-
-        <div id="content" class="list-unstyled components mx-auto">
-          <br>
-          <br>
-
-          <a class="navbar-brand navMap" href="#">
-            <br>Map</a>
-
-          <a class="navbar-brand navBank" href="#">
-            <br>Bank</a>
-
-          <a class="navbar-brand  navTrip" href="#">
-            <br>Trip</a>
-
-
-
-        </div>
-
-      </nav>
-
-
-      <button type="button" id="sidebarCollapse" class="btn btn-info col-ml-2">
-        <i class="fas fa-align-left"></i>
-        <span>Menu</span>
-      </button>
-
-
-
-    </div>
+  </div>
 
 
 
 
 
 
-    <script type="text/javascript" src="/js/map.js"></script>
-    <script>
 
-      $(function () {
+  <script type="text/javascript" src="./js/map.js"></script>
 
-        $('input[name="datefilter"]').daterangepicker({
-          autoUpdateInput: false,
-          locale: {
-            cancelLabel: 'Clear'
-          }
-        });
-
-
-
-        $('input[name="datefilter"]').on('cancel.daterangepicker', function (ev, picker) {
-          $(this).val('');
-        });
-
-
-      });
-
-
-    </script>
 </body>
 
 </html>
