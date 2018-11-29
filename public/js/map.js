@@ -1,4 +1,4 @@
-let currentURL = window.location.origin
+currentURL = window.location.origin
 
 jQuery(document).ready(function () {
   jQuery('#vmap').vectorMap(
@@ -30,6 +30,7 @@ jQuery(document).ready(function () {
 
         let name
         let cost = []
+
 
         $.ajax({ url: currentURL + '/costs/countryinfo/' + code, method: 'GET'})
           .then(function (result) {
@@ -98,10 +99,16 @@ jQuery(document).ready(function () {
                   totalCost: totalCost,
                   dailyIncrement: dailyIncrement
                 } //to do post to db
+                
+        $.ajax({ url: currentURL + '/costs/countryinfo/' + code, method: 'POST', data: Bank, success: function(){console.log("success")}})
               })
             })
           }
         )
+
+        
       }
     })
+
+
 })

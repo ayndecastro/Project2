@@ -8,31 +8,13 @@ var db = require("./models/index");
 
 
 var app = express();
-// var PORT = process.env.PORT || 3000;
 var PORT = 3000 || process.env.PORT;
 
 // Middleware
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-<<<<<<< HEAD
 app.use(express.static(path.join(__dirname, "public/")));
 
-// // Handlebars
-// app.engine(
-//   "handlebars",
-//   exphbs({
-//     defaultLayout: "main"
-//   })
-// );
-// app.set("view engine", "handlebars");
-=======
-app.use(express.static("public/"));
-
-
->>>>>>> 0c45003730625d1b46644365de6776fbfb7c336f
-
-// Routes
-// require('./models/Users');
 require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
 require("./routes/userRoutes");
