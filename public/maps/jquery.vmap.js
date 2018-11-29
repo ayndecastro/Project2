@@ -1288,19 +1288,4 @@ VectorCanvas.prototype.setSize = function (width, height) {
   this.height = height;
 };
 
-$(document).ready(function () {
-
-  $('#sidebarCollapse').on('click', function () {
-      $('#sidebar').toggleClass('active');
-      // check current class situation
-       // if one way do thing, otherwise other thing
-      $('#sidebarCollapse>i').removeClass('fa-arrow-left');
-      $('#sidebarCollapse>i').addClass('fa fa-home');
-  });
-  $('#dismiss').on('click', function () {
-    // hide sidebar
-    $('#sidebar').removeClass('active');
-    
-});
-});
 
