@@ -61,10 +61,7 @@ jQuery(document).ready(function () {
                   closeText: 'x'
                 })
               })
-<<<<<<< HEAD
             }
-=======
-            })
 
             $('input[name="datefilter"]').on('apply.daterangepicker', function (ev, picker) {
               $(this).val(picker.startDate.format('MM/DD/YYYY') + ' - ' + picker.endDate.format('MM/DD/YYYY'))
@@ -102,7 +99,6 @@ jQuery(document).ready(function () {
                 } //to do post to db
               })
             })
->>>>>>> d71a67d4d0966129ed39f37beafc5dc19a4c422d
           }
         )
       }
