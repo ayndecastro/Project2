@@ -85,7 +85,7 @@ jQuery(document).ready(function () {
               $('#confirmBtn').on('click', function () {
 
                 // append to html
-                $('.dateLeave').html(start.format('mm/dd/yy'));
+                $('.dateLeave').html(start.format('MM/DD/YYYY'));
                 $('.dailyIncrement').html(dailyIncrement);
                 $('.Country').html(name);
                 $('#Budget').html(totalCost);
@@ -100,7 +100,7 @@ jQuery(document).ready(function () {
                   dailyIncrement: dailyIncrement
                 } //to do post to db
                 
-        $.ajax({ url: currentURL + '/costs/countryinfo/' + code, method: 'POST', data: Bank, success: function(){console.log("success")}})
+        $.ajax({ url: currentURL + '/api/bank' + code, method: 'POST', data: Bank}).then(result=>console.log(result))
               })
             })
           }

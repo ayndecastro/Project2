@@ -65,6 +65,12 @@ li {
 
 }
 
+.mainText{
+  color:#EAEAEA;
+  font-family: 'Cinzel', serif;
+
+}
+
 #sidebarCollapse{
   position: fixed;
   top: 5%;
@@ -92,6 +98,7 @@ li {
   font-size: 20px;
   padding-top: 5px;
 
+
 }
 
 .toggleBackground{
@@ -111,7 +118,7 @@ li {
 
 }
 
-.navMap, .navTrip, .navBank, #sidebar{
+.navMap, .navTrip, .navBank, #sidebar, .mainText{
   color:#EAEAEA;
   font-family: 'Cinzel', serif;
   font-size: 30px;
@@ -219,11 +226,7 @@ a:hover{
   padding: 5%;
 }
 
-.login-form-1 h3{
-  text-align: center;
-  margin-bottom:12%;
-  color:#fff;
-}
+
 .btnSubmit{
   font-weight: 600;
   width: 50%;
