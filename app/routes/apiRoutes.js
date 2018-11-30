@@ -41,7 +41,6 @@ module.exports = function(app) {
   })
   
   app.post("/api/bank", function(req,res){
-    const newbank = req.body.bank;
     console.log(req.body);
     db.bank.create({
       userId: req.body.userid,
