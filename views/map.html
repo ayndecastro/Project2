@@ -208,12 +208,18 @@
               <span class="dailyIncrement"> </span>
               <br> <hr><br>
               <button id="confirmBtn" class="btn btn-warning col-3"> Confirm trip </button>
+              <a href="#" rel="modal:close" class="float-right close-button btn btn-secondary">Close</a>
             </div>
           </div>
      </div>
  </div>
 
- <div class="modal modal-lg container " style="display: none;">
+ <div class="modal modal-lg container tripModal" style="display: none;">
+  <div class="modal-header"></div>
+  <div class="modal-body">
+    Trip content goes here
+  </div>
+  <div class="modal-footer"></div>
 </div>
 
     <!-- Sidebar -->
@@ -222,23 +228,24 @@
       <nav id="sidebar">
 
         <div class="sidebar-header">
-          <h3 class="titleLogo"></h3>
+          <h3 class="titleLogo text-nowrap"></h3>
         </div>
 
         <div id="content" class="list-unstyled components mx-auto">
           <br>
           <br>
+          <br>
 
+         <div class="nameLogo"> <h5 class="text-left pt-1 ml-1">SAFE TRAVELS</h5>
+        </div>
           <a class="navbar-brand navMap" href="#">
             <br>Map</a>
 
+            <a class="navbar-brand  navTrip" href="#">
+                <br>Trips</a>
+
           <a class="navbar-brand navBank" href="#">
             <br>Bank</a>
-
-          <a class="navbar-brand  navTrip" href="#">
-            <br>Trip</a>
-
-
 
         </div>
 
@@ -262,6 +269,16 @@
     <script type="text/javascript" src="/js/map.js"></script>
     <script>
       $(function () {
+
+        $(".navMap").on("click", function() {
+          $(".close-button").click()
+        });
+
+        $("#sidebarCollapse").on("click", function(){
+          $("#sidebar").toggle();
+        });
+        
+
         $('input[name="datefilter"]').daterangepicker({
           autoUpdateInput: false,
           locale: {
@@ -271,7 +288,16 @@
         $('input[name="datefilter"]').on('cancel.daterangepicker', function (ev, picker) {
           $(this).val('');
         });
-
+        $('.navTrip').on("click", function() {
+          $(".tripModal").modal({
+            show: "fade",
+            fadeDelay: 0.8,
+            escapeClose: true,
+            showClose: false,
+            closeClass: "icon-remove",
+            closeText: "x"
+          });
+        })
 
       });
     </script>

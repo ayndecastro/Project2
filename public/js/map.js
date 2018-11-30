@@ -98,16 +98,41 @@ jQuery(document).ready(function() {
           console.log(dailyIncrement);
 
           // append to html
-          $(".travelDiv").html("Starting " + start.format("MM/DD/YYYY") + ", $" + Math.round(dailyIncrement) + " will be contributed towards your trip to " + name +".")
+          $(".travelDiv").html(
+            "Starting " +
+              start.format("MM/DD/YYYY") +
+              ", $" +
+              Math.round(dailyIncrement) +
+              " will be contributed towards your trip to " +
+              name +
+              "."
+          );
           $(".dateLeave").html("Departure: " + start.format("MM/DD/YYYY"));
-          $(".dailyIncrement").html("Daily contribution: $" + Math.round(dailyIncrement));
+          $(".dailyIncrement").html(
+            "Daily contribution: $" + Math.round(dailyIncrement)
+          );
           $(".Country").html("Country: " + name);
           $("#Budget").html("Total cost: $" + Math.round(totalCost));
           $(".travelInfo").show();
 
-          $('.formMOdal').animate({
-            scrollTop: $("#confirmBtn").offset().top},
-            'slow');
+          $(".formMOdal").animate(
+            {
+              scrollTop: $("#confirmBtn").offset().top
+            },
+            "slow"
+          );
+
+          $("#confirmBtn").on("click", function() {
+            $(".travelInfo").toggle();
+            $(".tripModal").modal({
+              show: "fade",
+              fadeDelay: 0.8,
+              escapeClose: true,
+              showClose: false,
+              closeClass: "icon-remove",
+              closeText: "x"
+            });
+          });
 
           let Bank = {
             Country: name,

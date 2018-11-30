@@ -87,6 +87,10 @@ li {
   color: #1d1d1d;
 }
 
+.nameLogo {
+  background: #ad974f;
+  color: #000;
+}
 
 .navMap,
 .navTrip,
