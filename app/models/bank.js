@@ -13,7 +13,11 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   bank.associate = function({user}) {
     // associations can be defined here
-    bank.belongsTo(user)
+    bank.belongsTo(user,{
+      foreignKey: {
+        allowNull: false
+      }
+    })
   };
   return bank;
 };

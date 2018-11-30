@@ -12,11 +12,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   User.associate = function({bank}) {
 	// associations can be defined here
-	User.hasMany(bank, {
-		foreignKey: {
-			allowNull: false
-		}
-	})
+	User.hasMany(bank)
   };
   return User;
 };
