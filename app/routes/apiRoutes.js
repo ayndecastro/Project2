@@ -27,7 +27,8 @@ module.exports = function(app) {
                     country: bank.country,
                     balance: bank.balance,
                     datestay: bank.datestay,
-                    dateleave: bank.dateleave
+                    dateleave: bank.dateleave,
+                    userID: bank.userId
                   })
               })
             })
@@ -35,8 +36,23 @@ module.exports = function(app) {
         res.json(resObj)
       })
   });
+  app.get("/api/bank", function(req,res){
+    db.bank.findAll({}).then(bank=>res.json(bank))
+  })
   
-  
+  app.post("/api/bank", function(req,res){
+    const newbank = req.body.bank;
+    console.log(req.body);
+    db.bank.create({
+      userId: req.body.userid,
+      country: req.body.country,
+      balance: req.body.balance,
+      datestay: req.body.datestay,
+      dateleave: req.body.dateleave
+    }).then(bank=>{
+      res.json(bank)
+    })
+  })
  
 
   // Get detailed cost of specific stuff example - taxi cost
