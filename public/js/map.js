@@ -30,7 +30,6 @@ jQuery(document).ready(function() {
 
       // alert(message)
 
-      
       $.ajax({
         url: currentURL + "/costs/countryinfo/" + code,
         method: "GET"
@@ -38,6 +37,13 @@ jQuery(document).ready(function() {
         console.log(result);
         let name = result.data.info.name;
         let cost = [];
+        $(".travelInfo").hide();
+        $('input[name="datefilter"]').empty();
+        $(".dateLeave").empty();
+        $(".dailyIncrement").empty();
+        $(".Country").empty();
+        $("#Budget").empty();
+
         result.data.costs.forEach(element => {
           cost.push(element.value_midrange);
         });
@@ -65,7 +71,6 @@ jQuery(document).ready(function() {
             closeText: "x"
           });
         });
-
         $('input[name="datefilter"]').on("apply.daterangepicker", function(
           ev,
           picker
@@ -92,23 +97,26 @@ jQuery(document).ready(function() {
           let dailyIncrement = (d * cost[12]) / a;
           console.log(dailyIncrement);
 
-          $("#confirmBtn").on("click", function() {
-            // append to html
-            $(".dateLeave").html(start.format("mm/dd/yy"));
-            $(".dailyIncrement").html(dailyIncrement);
-            $(".Country").html(name);
-            $("#Budget").html(totalCost);
-            $(".travelInfo").toggle();
+          // append to html
+          $(".travelDiv").html("Starting " + start.format("MM/DD/YYYY") + ", $" + Math.round(dailyIncrement) + " will be contributed towards your trip to " + name +".")
+          $(".dateLeave").html("Departure: " + start.format("MM/DD/YYYY"));
+          $(".dailyIncrement").html("Daily contribution: $" + Math.round(dailyIncrement));
+          $(".Country").html("Country: " + name);
+          $("#Budget").html("Total cost: $" + Math.round(totalCost));
+          $(".travelInfo").show();
 
-            let Bank = {
-              Country: name,
-              Balance: 0,
-              DatesStay: d,
-              DateLeave: start,
-              totalCost: totalCost,
-              dailyIncrement: dailyIncrement
-            }; //to do post to db
-          });
+          $('.formMOdal').animate({
+            scrollTop: $("#confirmBtn").offset().top},
+            'slow');
+
+          let Bank = {
+            Country: name,
+            Balance: 0,
+            DatesStay: d,
+            DateLeave: start,
+            totalCost: totalCost,
+            dailyIncrement: dailyIncrement
+          }; //to do post to db
         });
       });
     }

@@ -37,17 +37,26 @@
     <div class="mainContent">
       <div id="vmap" class=""></div>
 
-
-      <div id="ex1" class="modal-lg modal-country" style="display: none">
+<!-- main modal  -->
+      <div id="ex1" class="modal-lg modal-country scrollBar" style="display: none">
         <div class="dataContainer">
-          <div class="row mt-5 m-3 w-75 card">
-            <div class="col-12">
-              <h1 class="infoName display-1 bg-dark"></h1>
+          <div class="row">
+          <div class="card bg-eaeaea text-white w-50 col-6">
+              <img class="card-img" src="styles/countryBG.jpg" alt="Card image">
+              <div class="card-img-overlay">
+                <h5 class="card-title infoName display-2">Card title</h5>
+                <hr>
+                <div class=" text-right mr-1">
+                <h6 class="display-5">Average Daily Cost</h6>
+                <h6 class="display-3 cat12"></h6>
+              </div>
+              </div>
             </div>
-          </div>
-          <div class="row justify-content-between">
-            <div class="col-12 mb-5">
-              <ul class="card-ul mt-5">
+
+
+          <div class="col-6 justify-content-between">
+            <div class=" mb-5">
+              <ul class="card-ul ">
                 <li class="card text-white bg-dark mb-3" style="max-width: 18rem;">
                   <div class="card-header text-left">
                     <h6 class="">Accomodation</h6>
@@ -149,14 +158,6 @@
                   </div>
                   <h6 class="cat11 float-right value"></h6>
                 </li>
-                <li class="card text-white bg-dark mb-3" style="max-width: 18rem;">
-                  <div class="card-header text-left">
-                    <h6 class="">Tips and Handouts</h6>
-
-                    <span class="card-text">Tips for guides or service providers.</span>
-                  </div>
-                  <h6 class="cat12 float-right value"></h6>
-                </li>
 
               </ul>
             </div>
@@ -172,41 +173,48 @@
     </div>
   </div>
   </div>
+</div>
 
+<!-- what are your travel dates?  -->
 
-  <div class="container ">
-    <div class="row h-100">
-      <div class="modal formModal modal-lg formContainer" style="display: none">
+ <div class="container modal formModal modal-lg formContainer scrollBar" style="display: none;">
+     <div class="modal-header col-8">
+        <h1 class="bankForm-question display-2 m-5 text-dark border-0 p-2">What are your travel dates?</h1>
+     </div>
+     
+     <div class="modal-body "> 
+        <div class="bg-dark">
+            <div id="sandbox-container" class="ml-5 float-right mr-5 col-4">
+                <input type="text" name="datefilter" value=""/>
+    
+              </div>
+            </div>
+            <br><hr><br>
+        
+          <div class="travelInfo hide bg-eaeaea text-dark pt-5">
+            <div class="col-12">
+              <br>
+              <h1>Confirm your trip</h1>
+              <br>
+              <div class="travelDiv"></div>
+              <hr>
 
-        <div class="bankForm float-left">
-
-          <h1 class="bankForm-question display-2 m-5 text-white">What are your travel dates?</h1>
-
-          <div id="sandbox-container" class="ml-5 ">
-            <input type="text" name="datefilter" value="" />
-
-          </div>
-
-          <div class="travelInfo hide">
-            <div>Starting
-              <div class="dateLeave"></div>,
-              <div class="dailyIncrement"></div> will be contributed to the trip '
-              <div class="Country"></div>'
-              <ul>
-                <li class="Country"></li>
-                <li id="Budget"></li>
-                <li class="dateLeave"></li>
-                <li>Contribute
-                  <div class="dailyIncrement"> every day.</div>
-                </li>
-              </ul>
-
+              <span class="Country"> </span>
+              <br><hr><br>
+              <span id="Budget"> </span>
+              <br> <hr><br>
+              <span class="dateLeave"> </span>
+              <br><hr><br>
+              <span class="dailyIncrement"> </span>
+              <br> <hr><br>
+              <button id="confirmBtn" class="btn btn-warning col-3"> Confirm trip </button>
             </div>
           </div>
-          <button id="confirmBtn" class="btn btn-warning"> Confirm trip </button>
-        </div>
-      </div>
-    </div>
+     </div>
+ </div>
+
+ <div class="modal modal-lg container " style="display: none;">
+</div>
 
     <!-- Sidebar -->
 
@@ -263,6 +271,8 @@
         $('input[name="datefilter"]').on('cancel.daterangepicker', function (ev, picker) {
           $(this).val('');
         });
+
+
       });
     </script>
 </body>
