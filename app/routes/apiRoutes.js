@@ -13,36 +13,29 @@ module.exports = function(app) {
           model: db.bank,
         }
       ]
-      }).then(function(user){
-          const resObj =user.map(users=>{
-            return Object.assign(
-              {},
-              {
-                id: users.id,
-                email: users.email,
-                firstname: users.firstname,
-                lastname: users.lastname,
-                status: users.status,
-                createdby: users.createdAt,
-                updatedby: updatedBy,
-                bank: users.bank.map(banks =>{
-                  return Object.assign(
-                    {},
-                    {
-                      country: banks.country,
-                      balance: banks.balance,
-                      datestay: banks.datestay,
-                      dateleave: banks.dateleave,
-                      status: banks.status
-                    }
-                  )
-                })
-              }
-            )
-          });
-          res.json(resObj)
-        })
+      }).then(users =>{
+        const resObj =users.map(user =>{
+          return Object.assign({},
+            {
+              id: user.id,
+              email: user.email,
+              password: user.password,
+              status: user.status,
+              bank: user.banks.map(bank => {
+                return Object.assign({},
+                  {
+                    country: bank.country,
+                    balance: bank.balance,
+                    datestay: bank.datestay,
+                    dateleave: bank.dateleave
+                  })
+              })
+            })
+        });
+        res.json(resObj)
+      })
   });
+  
   
  
 
