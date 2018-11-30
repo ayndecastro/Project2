@@ -6,6 +6,53 @@ const request = require('request')
 
 module.exports = function(app) {
 
+    app.get('/api/user', function(req, res) {
+      db.user.findAll({
+        include: [
+          {
+          model: db.bank,
+        }
+      ]
+      }).then(users =>{
+        const resObj =users.map(user =>{
+          return Object.assign({},
+            {
+              id: user.id,
+              email: user.email,
+              password: user.password,
+              status: user.status,
+              bank: user.banks.map(bank => {
+                return Object.assign({},
+                  {
+                    country: bank.country,
+                    balance: bank.balance,
+                    datestay: bank.datestay,
+                    dateleave: bank.dateleave,
+                    userID: bank.userId
+                  })
+              })
+            })
+        });
+        res.json(resObj)
+      })
+  });
+  app.get("/api/bank", function(req,res){
+    db.bank.findAll({}).then(bank=>res.json(bank))
+  })
+  
+  app.post("/api/bank", function(req,res){
+    const newbank = req.body.bank;
+    console.log(req.body);
+    db.bank.create({
+      userId: req.body.userid,
+      country: req.body.country,
+      balance: req.body.balance,
+      datestay: req.body.datestay,
+      dateleave: req.body.dateleave
+    }).then(bank=>{
+      res.json(bank)
+    })
+  })
  
 
   // Get detailed cost of specific stuff example - taxi cost
@@ -61,27 +108,8 @@ module.exports = function(app) {
     })
   })
 
-  // app.get("/:country_code/USD/")
-//   unirest.get("https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsedates/v1.0/US/USD/en-US/SFO-sky/LAX-sky/2018-12-01/2018-12-02")
-// .header("X-Mashape-Key", "9hzDJAjyrzmshqEtZ8uvXG7VafZ7p1v4nohjsnZpSWKbDjDT9G")
-// .header("X-Mashape-Host", "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com")
-// .end(function (result) {
-//   console.log(result.status, result.headers, result.body);
-// });
 
 
-//get bag info
-app.get("/user", function(req,res){
-  db.User.findAll({}).then(function(dbExamples) {
-    res.json(dbExamples);
-  });
-})
-
-app.get("/token", function(req,res){
-  db.AuthToken.findAll({}).then(function(token){
-    res.json(token)
-  })
-})
 
 
   // Delete an example by id
