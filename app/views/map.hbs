@@ -1,0 +1,306 @@
+<html>
+
+  <head>
+    <title>Safe Travels</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+      crossorigin="anonymous">
+    <link href="./public/maps/jqvmap.css" media="screen" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      crossorigin="anonymous">
+    <link href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+  
+    <link rel="stylesheet" href="./public/styles/styles.css" />
+    <link href="https://fonts.googleapis.com/css?family=Cinzel|Courgette" rel="stylesheet">
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment-with-locales.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+      crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+      crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+    <script type="text/javascript" src="./public/maps/jquery.vmap.js"></script>
+    <script type="text/javascript" src="./public/maps/maps/jquery.vmap.world.js" charset="utf-8"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  
+  
+  
+  
+  </head>
+
+<body>
+  <div class="container-fluid">
+    <div class="mainContent">
+      <div id="vmap" class=""></div>
+
+<!-- main modal  -->
+      <div id="ex1" class="modal-lg modal-country scrollBar rounded" style="display: none">
+        <div class="dataContainer">
+          <div class="row">
+          <div class="card bg-eaeaea text-white w-50 col-6">
+              <img class="card-img" src="./public/styles/countryBG.jpg" alt="Card image">
+              <div class="card-img-overlay">
+                <h5 class="card-title infoName display-2">Card title</h5>
+                <hr>
+                <div class=" text-right mr-1">
+                <h6 class="display-5">Average Daily Cost</h6>
+                <h6 class="display-3 cat12"></h6>
+              </div>
+              </div>
+            </div>
+
+
+          <div class="col-6 justify-content-between">
+            <div class=" mb-5">
+              <ul class="card-ul ">
+                <li class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+                  <div class="card-header text-left">
+                    <h6 class="">Accomodation</h6>
+
+                    <span class="card-text">Hotel or hostel for one person</span>
+                  </div>
+                  <h6 class="cat0 float-right value"></h6>
+
+                </li>
+                <li class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+                  <div class="card-header text-left">
+                    <h6 class="">Intercity Transportation</h6>
+
+                    <span class="card-text">Travel between cities</span>
+                  </div>
+                  <h6 class="cat1 float-right value"></h6>
+
+                </li>
+                <li class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+                  <div class="card-header text-left">
+                    <h6 class="">Local Transportation</h6>
+
+                    <span class="card-text">Taxis, local buses, subway, etc.</span>
+                  </div>
+                  <h6 class="cat2 float-right value"></h6>
+                </li>
+                <li class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+                  <div class="card-header text-left">
+                    <h6 class="">Food</h6>
+
+                    <span class="card-text">Meals for one day</span>
+                  </div>
+                  <h6 class="cat3 float-right value"></h6>
+                </li>
+                <li class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+                  <div class="card-header text-left">
+                    <h6 class="">Water</h6>
+
+                    <span class="card-text">Bottled water for one day</span>
+                  </div>
+                  <h6 class="cat4 float-right value"></h6>
+                </li>
+                <li class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+                  <div class="card-header text-left">
+                    <h6 class="">Entertainment</h6>
+
+                    <span class="card-text">Entrance tickets, shows, etc.</span>
+                  </div>
+                  <h6 class="cat5 float-right value"></h6>
+
+                </li>
+                <li class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+                  <div class="card-header text-left">
+                    <h6 class="">Souvenir</h6>
+
+                    <span class="card-text">All purchases from gifts to personal keepsakes.</span>
+                  </div>
+                  <h6 class="cat6 float-right value"></h6>
+
+                </li>
+                <li class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+
+                  <div class="card-header text-left">
+                    <h6 class="">Communication</h6>
+
+                    <span class="card-text">Phone calls, internet access, or postage for one day's time.</span>
+                  </div>
+                  <h6 class="cat7 float-right value"></h6>
+                </li>
+                <li class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+                  <div class="card-header text-left">
+                    <h6 class="">Living Expenses</h6>
+
+                    <span class="card-text">Personal purchases from shampoo to laundry. Costs are for one day's time.</span>
+                  </div>
+                  <h6 class="cat8 float-right value"></h6>
+                </li>
+                <li class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+                  <div class="card-header text-left">
+                    <h6 class="">Visas</h6>
+
+                    <span class="card-text">Required entry and exit fees.</span>
+                  </div>
+                  <h6 class="cat9 float-right value"></h6>
+                </li>
+                <!-- <li class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+                    <div class="card-header text-left">
+                        <h6 class="">Scams, Robberies, and Mishaps</h6>
+    
+                        <span class="card-text">It happens to everyone! You may as well fess up now.</span>
+                      </div>
+                  <h6 class="cat10 float-right value"></h6>
+                </li> -->
+                <li class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+                  <div class="card-header text-left">
+                    <h6 class="">Alcohol</h6>
+
+                    <span class="card-text">Drinks imbibed, from bar hopping to wine country.</span>
+                  </div>
+                  <h6 class="cat11 float-right value"></h6>
+                </li>
+
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <a href="#" rel="modal:close" class="float-right close-button btn btn-secondary">Close</a>
+        <button id="addtrip" class="addtrip-button btn btn-warning text-white">Add Trip</button>
+
+
+      </div>
+
+    </div>
+  </div>
+  </div>
+</div>
+
+<!-- what are your travel dates?  -->
+
+ <div class="container modal formModal modal-lg formContainer scrollBar" style="display: none;">
+     <div class="modal-header col-8">
+        <h1 class="bankForm-question display-2 m-5 text-dark border-0 p-2">What are your travel dates?</h1>
+     </div>
+     
+     <div class="modal-body "> 
+        <div class="bg-dark">
+            <div id="sandbox-container" class="ml-5 float-right mr-5 col-4">
+                <input type="text" name="datefilter" value=""/>
+    
+              </div>
+            </div>
+            <br><hr><br>
+        
+          <div class="travelInfo hide bg-eaeaea text-dark pt-5">
+            <div class="col-12">
+              <br>
+              <h1>Confirm your trip</h1>
+              <br>
+              <div class="travelDiv"></div>
+              <hr>
+
+              <span class="Country"> </span>
+              <br><hr><br>
+              <span id="Budget"> </span>
+              <br> <hr><br>
+              <span class="dateLeave"> </span>
+              <br><hr><br>
+              <span class="dailyIncrement"> </span>
+              <br> <hr><br>
+              <button id="confirmBtn" class="btn btn-warning col-3"> Confirm trip </button>
+              <a href="#" rel="modal:close" class="float-right close-button btn btn-secondary">Close</a>
+            </div>
+          </div>
+     </div>
+ </div>
+
+ <div class="modal modal-lg container tripModal" style="display: none;">
+  <div class="modal-header"></div>
+  <div class="modal-body">
+    Trip content goes here
+  </div>
+  <div class="modal-footer"></div>
+</div>
+
+    <!-- Sidebar -->
+
+    <div class="wrapper text-center border-right-0">
+      <nav id="sidebar">
+
+        <div class="sidebar-header">
+          <h3 class="titleLogo text-nowrap"></h3>
+        </div>
+
+        <div id="content" class="list-unstyled components mx-auto">
+          <br>
+          <br>
+          <br>
+
+         <div class="nameLogo"> <h5 class="text-left pt-1 ml-1">SAFE TRAVELS</h5>
+        </div>
+          <a class="navbar-brand navMap" href="#">
+            <br>Map</a>
+
+            <a class="navbar-brand  navTrip" href="#">
+                <br>Trips</a>
+
+          <a class="navbar-brand navBank" href="#">
+            <br>Bank</a>
+
+        </div>
+
+      </nav>
+
+
+      <button type="button" id="sidebarCollapse" class="btn btn-info col-ml-2">
+        <i class="fas fa-align-left"></i>
+        <span>Menu</span>
+      </button>
+
+
+
+    </div>
+
+
+
+
+
+
+    <script type="text/javascript" src="./public/js/map.js"></script>
+    <script>
+      $(function () {
+
+        $(".navMap").on("click", function() {
+          $(".close-button").click()
+        });
+
+        $("#sidebarCollapse").on("click", function(){
+          $("#sidebar").toggle();
+        });
+        
+
+        $('input[name="datefilter"]').daterangepicker({
+          autoUpdateInput: false,
+          locale: {
+            cancelLabel: 'Clear'
+          }
+        });
+        $('input[name="datefilter"]').on('cancel.daterangepicker', function (ev, picker) {
+          $(this).val('');
+        });
+        $('.navTrip').on("click", function() {
+          $(".tripModal").modal({
+            show: "fade",
+            fadeDelay: 0.8,
+            escapeClose: true,
+            showClose: false,
+            closeClass: "icon-remove",
+            closeText: "x"
+          });
+        })
+
+      });
+    </script>
+</body>
+
+</html>
