@@ -94,7 +94,7 @@ jQuery(document).ready(function() {
           console.log(
             "date difference from today to start of travel " + a + "days"
           );
-          let dailyIncrement = (d * cost[12]) / a;
+          let dailyIncrement = Math.round((d * cost[12]) / a);
           console.log(dailyIncrement);
 
           // append to html
@@ -105,7 +105,7 @@ jQuery(document).ready(function() {
               Math.round(dailyIncrement) +
               " will be contributed towards your trip to " +
               name +
-              "."
+              ", for " + d + " days."
           );
           $(".dateLeave").html("Departure: " + start.format("MM/DD/YYYY"));
           $(".dailyIncrement").html(
@@ -132,16 +132,29 @@ jQuery(document).ready(function() {
               closeClass: "icon-remove",
               closeText: "x"
             });
+            let Bank = {
+              country: name,
+              balance: 0,
+              datestay: d,
+              dateleave: start,
+              totalcost: totalCost,
+              dailyincrement: dailyIncrement
+            }; //to do post to db
+            $.ajax({
+              method: "POST",
+              url: "/api/bank",
+              data: Bank
+            })
+              .then(function() {
+                window.location.href = "/blog";
+              });
+          
           });
 
-          let Bank = {
-            Country: name,
-            Balance: 0,
-            DatesStay: d,
-            DateLeave: start,
-            totalCost: totalCost,
-            dailyIncrement: dailyIncrement
-          }; //to do post to db
+          
+
+          
+          
         });
       });
     }

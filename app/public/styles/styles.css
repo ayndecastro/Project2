@@ -236,7 +236,7 @@ input[type="text"]:focus {
 
 
 .travelInfo {
-  background: #333333;
+  background:#eaeaeace;
   color: #eaeaea;
 }
 
@@ -272,5 +272,21 @@ input[type="text"]:focus {
   float: right;
 }
 
-.bankForm-question {
+.loginCenter {
+  position: fixed;
+  top: 30%;
+  right: 60%;
 }
+
+.mainText {
+  color: #eaeaea;
+}
+
+.loginPage {
+  overflow-y: hidden;
+}
+
+/* .signupBTN {
+  position: fixed;
+
+} */
