@@ -227,10 +227,11 @@
     </div>
   </div>
 
+  {{!-- trips --}}
   <div class="modal modal-lg container tripModal" style="display: none;">
-    <div class="modal-header"></div>
-    <div class="modal-body">
-      Trip content goes here
+    <div class="modal-header display-2"> My Trips</div>
+    <div class="modal-body tripBody">
+
     </div>
     <div class="modal-footer"></div>
   </div>
@@ -280,9 +281,14 @@
 
 
 
+
+
+
   <script type="text/javascript" src="./public/js/map.js"></script>
   <script>
     $(function () {
+
+
 
       $(".navMap").on("click", function () {
         $(".close-button").click()
@@ -311,7 +317,79 @@
           closeClass: "icon-remove",
           closeText: "x"
         });
+
       })
+      let count = 0;
+      console.log(moment().format("MM/DD/YY"))
+      let datetoday = moment();
+      $.ajax({
+        url: "/api/bank",
+        method: "GET"
+      }).then(function (result) {
+        result.forEach(child => {
+
+          console.log(child)
+          let w = (child.balance / child.totalcost) * 100;
+          let dateStarted = moment(child.createdAt).format("MM/DD/YY");
+          let targetDate = moment(child.dateleave).format("MM/DD/YYYY")
+
+        //update daily counter on open
+        if(datetoday > moment(child.createdAt)) {
+          let addincrement = datetoday.diff(moment(child.createdAt), "days") * child.dailyincrement;
+          console.log(addincrement);
+          //TODO ADD ADD INCREMENT TO BALANCE
+        }
+        
+
+
+
+
+
+
+          //append to html
+          let html =
+            `<div class="card my-2 bg-dark text-white">
+    <div class="ml-2 mt-2 card-title display-5">
+      ${child.country}
+    </div>
+    <div class="card-body">
+      <div class="progress">
+        <div class="progress-bar bg-warning text-dark" role="progressbar" style="width: ${w}%" aria-valuenow="${child.balance}" aria-valuemin="0"
+          aria-valuemax="${child.totalcost}"> $${child.balance} out of $${child.totalcost}</div>
+      </div>
+
+<div id="accordion" class="bg-dark mt-2">
+ 
+      <div class="card bg-dark border-0 text-white">
+        <div class="card-header" id="heading${count}">
+          <h5 class="mb-0">
+            <button class="btn btn-link text-white" data-toggle="collapse" data-target="#collapse${count}" aria-expanded="true" aria-controls="collapse${count}">
+              More Info
+            </button>
+          </h5>
+        </div>
+
+        <div id="collapse${count}" class="collapse" aria-labelledby="heading${count}" data-parent="#accordion">
+          <div class="card-body ">
+            <p class="dropdown-item text-white">Started on ${dateStarted}</p>
+            <p class="dropdown-item text-white">Leaving on ${targetDate}</p>
+            <p class="dropdown-item text-white">Contributing $${child.dailyincrement} daily</p>
+          </div>
+        </div>
+      </div>
+      </div>
+
+    </div>
+  </div>
+        `
+
+          $(".tripBody").append(html);
+          count++;
+
+
+
+        })
+      });
 
     });
   </script>
