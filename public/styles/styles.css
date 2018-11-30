@@ -53,8 +53,7 @@ li {
   left: 0;
   height: 100vh;
   z-index: 999;
-  background-color: #1d1d1d;
-  border-right: 3px ridge #ad974f;
+  background-color: #1d1d1d67;
 }
 
 #sidebarCollapse {
@@ -87,6 +86,7 @@ li {
 .navbar {
   color: #1d1d1d;
 }
+
 
 .navMap,
 .navTrip,
