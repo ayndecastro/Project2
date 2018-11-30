@@ -27,7 +27,16 @@ module.exports = {
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE
-      }
+      },
+      totalcost: {
+        allowNull: false,
+        type: Sequelize.INTEGER
+      },
+      dailyincrement: {
+        allowNull: false,
+        type: Sequelize.INTEGER
+      },
+
     });
   },
   down: (queryInterface, Sequelize) => {
