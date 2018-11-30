@@ -28,6 +28,8 @@ module.exports = function(app) {
                     balance: bank.balance,
                     datestay: bank.datestay,
                     dateleave: bank.dateleave,
+                    dailyincrement: bank.dailyincrement,
+                    totalcost: bank.totalcost,
                     userID: bank.userId
                   })
               })
@@ -47,7 +49,9 @@ module.exports = function(app) {
       country: req.body.country,
       balance: req.body.balance,
       datestay: req.body.datestay,
-      dateleave: req.body.dateleave
+      dateleave: req.body.dateleave,
+      dailyincrement: req.body.dailyincrement,
+      totalcost: req.body.totalcost
     }).then(bank=>{
       res.json(bank)
     })

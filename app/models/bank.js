@@ -4,7 +4,12 @@ module.exports = (sequelize, DataTypes) => {
     country: DataTypes.STRING,
     balance: DataTypes.STRING,
     datestay: DataTypes.DATEONLY,
-    dateleave: DataTypes.DATEONLY
+    dateleave: DataTypes.DATEONLY,
+    dailyincrement: DataTypes.INTEGER,
+    totalcost: {
+      allowNull: false,
+      type: DataTypes.INTEGER
+    }
   }, {});
   bank.associate = function({user}) {
     // associations can be defined here
