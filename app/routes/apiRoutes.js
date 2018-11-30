@@ -6,6 +6,44 @@ const request = require('request')
 
 module.exports = function(app) {
 
+    app.get('/api/user', function(req, res) {
+      db.user.findAll({
+        include: [
+          {
+          model: db.bank,
+        }
+      ]
+      }).then(function(user){
+          const resObj =user.map(users=>{
+            return Object.assign(
+              {},
+              {
+                id: users.id,
+                email: users.email,
+                firstname: users.firstname,
+                lastname: users.lastname,
+                status: users.status,
+                createdby: users.createdAt,
+                updatedby: updatedBy,
+                bank: users.bank.map(banks =>{
+                  return Object.assign(
+                    {},
+                    {
+                      country: banks.country,
+                      balance: banks.balance,
+                      datestay: banks.datestay,
+                      dateleave: banks.dateleave,
+                      status: banks.status
+                    }
+                  )
+                })
+              }
+            )
+          });
+          res.json(resObj)
+        })
+  });
+  
  
 
   // Get detailed cost of specific stuff example - taxi cost
@@ -61,27 +99,8 @@ module.exports = function(app) {
     })
   })
 
-  // app.get("/:country_code/USD/")
-//   unirest.get("https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browsedates/v1.0/US/USD/en-US/SFO-sky/LAX-sky/2018-12-01/2018-12-02")
-// .header("X-Mashape-Key", "9hzDJAjyrzmshqEtZ8uvXG7VafZ7p1v4nohjsnZpSWKbDjDT9G")
-// .header("X-Mashape-Host", "skyscanner-skyscanner-flight-search-v1.p.rapidapi.com")
-// .end(function (result) {
-//   console.log(result.status, result.headers, result.body);
-// });
 
 
-//get bag info
-app.get("/user", function(req,res){
-  db.User.findAll({}).then(function(dbExamples) {
-    res.json(dbExamples);
-  });
-})
-
-app.get("/token", function(req,res){
-  db.AuthToken.findAll({}).then(function(token){
-    res.json(token)
-  })
-})
 
 
   // Delete an example by id
