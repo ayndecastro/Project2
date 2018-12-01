@@ -148,9 +148,9 @@ let userID;
               url: "/api/bank",
               data: Bank
             })
-              .then(function() {
-                window.location.href = "/api/bank";
-              });
+              // .then(function() {
+              //   // window.location.href = "/api/bank";
+              // });
           
           });
 

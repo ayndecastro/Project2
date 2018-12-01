@@ -1,6 +1,7 @@
 var db = require("../models");
 // let Options = require("../api/bytApi");
 const request = require('request')
+// let schedule = require('node-schedule');
 
 
 
@@ -76,13 +77,15 @@ module.exports = function(app) {
   //       userId:req.user.id
   //     }
   //   }).then(balance=>{
-  //     res.json(balance)
+  //     if(balance){
+  //       return
+  //     }
   //   })
   // })
 
   // app.put("/balance", function(req,res){
   //   db.bank.update({
-  //     balance: req.body.balance
+  //     balance: schedule.scheduleJob("**")
   //   })
   // })
  
