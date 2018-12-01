@@ -11,7 +11,6 @@ let userID;
     method: "GET"
   }).then(function(result) {
     userID = result[0].id;
-    console.log(result[0].id)
   });
 
 

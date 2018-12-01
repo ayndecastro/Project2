@@ -6,7 +6,6 @@ const request = require('request')
 
 module.exports = function(app) {
 
-
     app.get('/api/user', function(req, res) {
       db.user.findAll({
         include: [
@@ -39,28 +38,51 @@ module.exports = function(app) {
         res.json(resObj)
       })
   });
-
-  app.get("/api/user/bank", function(req,res){
-    console.log(resObj)
-    db.user.findAll({}).then(user=>res.json(user))
+  app.get("/api/bank", function(req,res){
+    db.bank.findAll({
+      where:{
+        userId:req.user.id
+      }
+    }).then(bank=>res.json(bank))
   })
   
-  app.post("/api/:userID/bank", function(req,res){
-    console.log(req.user);
+  app.post("/api/bank", function(req,res){
+    console.log(req.body);
     db.bank.create({
+      userId: req.user.id,
       country: req.body.country,
       balance: req.body.balance,
       datestay: req.body.datestay,
       dateleave: req.body.dateleave,
       dailyincrement: req.body.dailyincrement,
-      totalcost: req.body.totalcost,
-      userId: req.body.userid,
+      totalcost: req.body.totalcost
+    }).then(bank=>{
+      res.json(bank)
     })
   })
 
-  // app.put("/updatecost", function(req,res){
+  // app.post("/api/bank/:id", function(req, res) {
+  //   db.bank.findOne({
+  //     where: {
+  //       id:req.params.id
+  //     }
+  //   }).then(this =>
+  //     db.bank.update)
+  // })
+
+  // app.get("/balance", function(req,res){
+  //   db.bank.findAll({
+  //     where:{
+  //       userId:req.user.id
+  //     }
+  //   }).then(balance=>{
+  //     res.json(balance)
+  //   })
+  // })
+
+  // app.put("/balance", function(req,res){
   //   db.bank.update({
-  //     totalcost: req.body.totalcost
+  //     balance: req.body.balance
   //   })
   // })
  

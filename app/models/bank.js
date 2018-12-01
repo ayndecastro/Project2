@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
     // associations can be defined here
     bank.belongsTo(user,{
       foreignKey: {
-        allowNull: false
+        allowNull: true
       }
     })
   };
