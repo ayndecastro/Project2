@@ -275,15 +275,21 @@ input[type="text"]:focus {
 .loginCenter {
   position: fixed;
   top: 30%;
-  right: 60%;
+  right: 65%;
+}
+.signupCenter {
+  position: fixed;
+  top: 30%;
+  left: 69%;
 }
 
 .mainText {
   color: #eaeaea;
+  font-family: 'Cinzel', serif;
 }
 
 .loginPage {
-  overflow-y: hidden;
+  overflow: hidden;
 }
 
 /* .signupBTN {
