@@ -338,6 +338,13 @@
           let addincrement = datetoday.diff(moment(child.createdAt), "days") * child.dailyincrement;
           console.log(addincrement);
           //TODO ADD ADD INCREMENT TO BALANCE
+          function updateTodo(addincrement, datetoday) {
+             $.ajax({
+               method: "PUT",
+               url: "/api/bank",
+               data: {addincrement: addincrement, datetoday, datetoday}
+             }).then(getbalance);
+           }
         }
         
 

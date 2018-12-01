@@ -62,6 +62,26 @@ module.exports = function(app) {
     })
   })
 
+
+  app.put("/api/bank", function(req, res) {
+
+    // Update takes in an object describing the properties we want to update, and
+    // we use where to describe which objects we want to update
+    db.bank.update({
+      balance: req.body.addincrement
+    }, {
+      where: {
+        createdAt: { $gt: datetoday }
+      }
+    }).then(function(dbTodo) {
+      res.json(dbTodo);
+    })
+      .catch(function(err) {
+      // Whenever a validation or flag fails, an error is thrown
+      // We can "catch" the error to prevent it from being "thrown", which could crash our node app
+        res.json(err);
+      });
+  });
   // app.post("/api/bank/:id", function(req, res) {
   //   db.bank.findOne({
   //     where: {
