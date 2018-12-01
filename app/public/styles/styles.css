@@ -283,7 +283,7 @@ input[type="text"]:focus {
 }
 
 .loginPage {
-  overflow-y: hidden;
+  overflow: hidden;
 }
 
 /* .signupBTN {
