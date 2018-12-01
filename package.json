@@ -31,8 +31,12 @@
     "jsonwebtoken": "^8.4.0",
     "mongoose": "^5.3.13",
     "mysql2": "^1.5.3",
+<<<<<<< HEAD
+    "nodemon": "^1.18.7",
+=======
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
+>>>>>>> dc48cabe61d8682623cbb9fdc742ca522e34c2f7
     "path": "^0.12.7",
     "promisify": "0.0.3",
     "rapidapi-connect": "0.0.6",
@@ -52,5 +56,17 @@
     "eslint-plugin-prettier": "^2.6.2",
     "mocha": "^5.2.0",
     "prettier": "^1.13.7"
-  }
+  },
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ayndecastro/Van-and-friends.git"
+  },
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/ayndecastro/Van-and-friends/issues"
+  },
+  "homepage": "https://github.com/ayndecastro/Van-and-friends#readme"
 }
