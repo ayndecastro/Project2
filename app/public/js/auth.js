@@ -3,9 +3,9 @@ console.log("auth");
 jQuery(document).ready(function() {
     console.log("jquery");
 
-    if(window.location === "/signup"){
-        $(".signin").on("click", function(){
-          window.location = "/signin";
+    if(window.location === "/signin"){
+        $(".signup").on("click", function(){
+          window.location = "https://project2present.herokuapp.com/signup";
         })
     } 
     // if(window.location === "/signin"){
