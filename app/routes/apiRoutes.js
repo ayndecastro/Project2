@@ -39,29 +39,30 @@ module.exports = function(app) {
         res.json(resObj)
       })
   });
+
   app.get("/api/user/bank", function(req,res){
     console.log(resObj)
     db.user.findAll({}).then(user=>res.json(user))
   })
   
-  app.post("/api/bank", function(req,res){
+  app.post("/api/:userID/bank", function(req,res){
     console.log(req.user);
     db.bank.create({
-      userId: req.body.userid,
       country: req.body.country,
       balance: req.body.balance,
       datestay: req.body.datestay,
       dateleave: req.body.dateleave,
       dailyincrement: req.body.dailyincrement,
-      totalcost: req.body.totalcost
+      totalcost: req.body.totalcost,
+      userId: req.body.userid,
     })
   })
 
-  app.put("/updatecost", function(req,res){
-    db.bank.update({
-      totalcost: req.body.totalcost
-    })
-  })
+  // app.put("/updatecost", function(req,res){
+  //   db.bank.update({
+  //     totalcost: req.body.totalcost
+  //   })
+  // })
  
 
   // Get detailed cost of specific stuff example - taxi cost

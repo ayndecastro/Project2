@@ -29,7 +29,7 @@ app.set('view engine', '.hbs');
 
 
 app.get('/', function (req, res) {
-    res.redirect("/signup");
+    res.redirect("/signin");
 });
 
 
