@@ -4,6 +4,16 @@ let currentURL = window.location.origin;
 // vex.registerPlugin(require('vex-dialog'))
 
 jQuery(document).ready(function() {
+let userID;
+
+  $.ajax({
+    url:"/api/user",
+    method: "GET"
+  }).then(function(result) {
+    userID = result[0].id;
+  });
+
+
   jQuery("#vmap").vectorMap({
     map: "world_en",
     backgroundColor: "#a5bfdd",
@@ -84,18 +94,10 @@ jQuery(document).ready(function() {
           let future = moment(picker.endDate);
           let start = moment(picker.startDate);
           let d = future.diff(start, "days");
-          console.log("difference in dates " + d);
-          console.log("cost per day " + cost[12]);
-          console.log("total cost of travel dates " + d * cost[12]);
-          let totalCost = d * cost[12];
+          let totalCost = Math.round(d * cost[12]);
           let dateCurrent = moment();
-          // console.log(dateCurrent)
           let a = start.diff(dateCurrent, "days");
-          console.log(
-            "date difference from today to start of travel " + a + "days"
-          );
-          let dailyIncrement = (d * cost[12]) / a;
-          console.log(dailyIncrement);
+          let dailyIncrement = Math.round((d * cost[12]) / a);
 
           // append to html
           $(".travelDiv").html(
@@ -105,7 +107,7 @@ jQuery(document).ready(function() {
               Math.round(dailyIncrement) +
               " will be contributed towards your trip to " +
               name +
-              "."
+              ", for " + d + " days."
           );
           $(".dateLeave").html("Departure: " + start.format("MM/DD/YYYY"));
           $(".dailyIncrement").html(
@@ -132,16 +134,30 @@ jQuery(document).ready(function() {
               closeClass: "icon-remove",
               closeText: "x"
             });
+            let Bank = {
+              country: name,
+              balance: 0,
+              datestay: d,
+              dateleave: start.format("MM/DD/YYYY"),
+              totalcost: totalCost,
+              dailyincrement: dailyIncrement,
+              userId: userID
+            }; //to do post to db
+            $.ajax({
+              method: "POST",
+              url: "/api/bank",
+              data: Bank
+            })
+              .then(function() {
+                window.location.href = "/api/bank";
+              });
+          
           });
 
-          let Bank = {
-            Country: name,
-            Balance: 0,
-            DatesStay: d,
-            DateLeave: start,
-            totalCost: totalCost,
-            dailyIncrement: dailyIncrement
-          }; //to do post to db
+          
+
+          
+          
         });
       });
     }
