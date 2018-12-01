@@ -280,6 +280,7 @@ input[type="text"]:focus {
 
 .mainText {
   color: #eaeaea;
+  font-family: 'Cinzel', serif;
 }
 
 .loginPage {
