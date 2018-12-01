@@ -6,6 +6,7 @@ const request = require('request')
 
 module.exports = function(app) {
 
+
     app.get('/api/user', function(req, res) {
       db.user.findAll({
         include: [
@@ -38,12 +39,13 @@ module.exports = function(app) {
         res.json(resObj)
       })
   });
-  app.get("/api/bank", function(req,res){
-    db.bank.findAll({}).then(bank=>res.json(bank))
+  app.get("/api/user/bank", function(req,res){
+    console.log(resObj)
+    db.user.findAll({}).then(user=>res.json(user))
   })
   
   app.post("/api/bank", function(req,res){
-    console.log(req.body);
+    console.log(req.user);
     db.bank.create({
       userId: req.body.userid,
       country: req.body.country,
@@ -52,8 +54,12 @@ module.exports = function(app) {
       dateleave: req.body.dateleave,
       dailyincrement: req.body.dailyincrement,
       totalcost: req.body.totalcost
-    }).then(bank=>{
-      res.json(bank)
+    })
+  })
+
+  app.put("/updatecost", function(req,res){
+    db.bank.update({
+      totalcost: req.body.totalcost
     })
   })
  
